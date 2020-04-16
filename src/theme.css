@@ -3,7 +3,16 @@
 .ax-logo {
   & img,
   & svg {
-    @apply h-9 w-auto;
+    @apply h-6 w-auto;
+  }
+}
+
+@screen sm {
+  .ax-logo {
+    & img,
+    & svg {
+      @apply h-9;
+    }
   }
 }
 
@@ -29,7 +38,7 @@
 .header {
   @apply relative shadow-b bg-white py-3 flex justify-center;
   & > .ax-inner {
-    @apply flex flex-grow min-w-0 max-w-6xl mx-4;
+    @apply flex flex-grow items-center min-w-0 max-w-6xl mx-4;
     & > .ax-logo {
       @apply flex-1;
     }
@@ -46,7 +55,7 @@
   }
 }
 
-@screen md {
+@screen sm {
   .default-single,
   .default-terms,
   .default-taxonomy,
@@ -61,10 +70,12 @@
     }
   }
 
-  .header, .footer {
-    & > .ax-inner {
-      @apply mx-8;
-    }
+  .header > .ax-inner {
+    @apply mx-8;
+  }
+
+  .footer > .ax-inner {
+    @apply mx-8;
   }
 }
 

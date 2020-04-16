@@ -220,16 +220,26 @@
   }
 
   /* <ul>, <ol>, <li> */
-  & > ul:not(.list-none),
-  & > ol {
+  & > ul,
+  & > ul li ul,
+  & > ul li ol,
+  & > ol,
+  & > ol li ol,
+  & > ol li ul,
+  & > .footnotes > ol {
     padding-inline-start: 1.875rem;
   }
 
-  & > ul:not(.list-none) {
+  & > ul,
+  & > ul li ul,
+  & > ol li ul {
     @apply list-disc;
   }
 
-  & > ol {
+  & > ol,
+  & > ol li ol,
+  & > ul li ol,
+  & > .footnotes > ol {
     @apply list-decimal;
   }
 
@@ -244,18 +254,21 @@
   & > table {
     @apply w-full border-collapse;
 
-    /* <th> */
     & th {
-      @apply font-semibold text-raven-700 p-2 bg-gray-100;
+      @apply font-semibold;
+      text-align: inherit;
     }
 
-    /* <td> */
-    & td {
-      @apply p-2 border-t border-gray-200;
+    & th, & td {
+      @apply p-2 align-top border-t border-raven-100;
+    }
 
-      &:first-child {
-        @apply border-gray-300;
-      }
+    & thead th {
+      @apply align-bottom border-b-2 border-raven-100;
+    }
+
+    & tbody + tbody {
+      @apply border-t-2 border-raven-100;
     }
   }
 
@@ -267,11 +280,6 @@
       @apply mt-6;
       @apply mb-2;
     }
-    & > ol {
-      @apply list-decimal;
-    }
-    /* workaround until hugo fixes
-     https://github.com/gohugoio/hugo/issues/6807 */
     & .footnote-backref {
       visibility: hidden;
       &::before {
