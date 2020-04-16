@@ -21,7 +21,7 @@
       {{- $currentPage := . }}
       {{- range (.Site.Menus.main) }}
       {{- $isCurrent := (eq (trim $currentPage.RelPermalink "/") (trim .URL "/")) }}
-      <a class="ml-3 block text-sm leading-none {{ if $isCurrent }} text-gray-500 cursor-not-allowed{{ else }} text-raven-500 hover:text-gray-800 focus:text-gray-800 focus:outline-none{{ end }}"{{ if not $isCurrent }} href="{{ .URL | relLangURL }}"{{ end }}>
+      <a class="p-2 block text-sm leading-none{{ if $isCurrent }} text-gray-500 cursor-not-allowed{{ else }} text-raven-500 hover:text-gray-800 focus:text-gray-800 focus:outline-none{{ end }}"{{ if not $isCurrent }} href="{{ .URL | relLangURL }}"{{ end }}>
         {{ .Name }}
       </a>
       {{- end }}

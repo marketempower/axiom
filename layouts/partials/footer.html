@@ -21,7 +21,7 @@
       &#169; {{ .Site.Params.copyrightYear }}-{{ dateFormat "2006" now.UTC }} {{ $copyright }}
     </div>
 
-    <div class="text-xs text-center text-gray-500 mt-2">
+    <div class="text-sm sm:text-xs text-center text-gray-500 mt-2">
       {{ printf `%s <a href="%s">%s</a>` (T "poweredBy" .) .Site.Data.theme.url (T "attribution" .) | safeHTML }}
     </div>
   </div>
