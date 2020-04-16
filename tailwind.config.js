@@ -52,8 +52,8 @@ module.exports = {
     },
   },
   variants: {
-    margin: ['responsive', 'first'],
-    padding: ['responsive', 'first'],
+    margin: ['responsive', 'first', 'last'],
+    padding: ['responsive', 'first', 'last'],
   },
   plugins: []
 }
