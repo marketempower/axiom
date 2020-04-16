@@ -1,0 +1,24 @@
+{{ define "main" }}
+{{ $title := .Title | default (T .Section .) | default .Section | humanize -}}
+<div class="default-section section-{{ .Section }}">
+  <div class="ax-content">
+    <div class="ax-inner">
+      <h1 class="title-section">{{- $title -}}</h1>
+
+      {{- with .Content }}
+      <article class="cdata mt-8">
+        {{ . }}
+      </article>
+      {{- end }}
+
+      {{- range .Paginator.Pages }}
+      <div class="mt-8">
+        {{ .Render "summary" }}
+      </div>
+      {{- end }}
+      {{- partial "paginator" . -}}
+      {{- partial "adsense" . }}
+    </div>
+  </div>
+</div>
+{{ end }}

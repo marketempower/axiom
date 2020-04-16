@@ -1,0 +1,37 @@
+{{ define "main" }}
+<div class="posts-single">
+  <div class="ax-header">
+    <div class="ax-inner">
+      <h1 class="title-post">{{ .Title }}</h1>
+      <p class="subtitle-post">{{- partial "subtitle" . | truncate 125 " ..." -}}</p>
+
+      <div class="ax-meta flex items-center mt-5">
+        <div class="ax-inner flex-grow min-w-0">
+          {{ partial "author" . }}
+        </div>
+        <div>
+          {{ partial "share" . }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{- if .Params.feature }}
+  <div class="ax-feature">
+    <div class="ax-inner">
+      {{- partial "feature" . }}
+    </div>
+  </div>
+  {{- end -}}
+
+  <div class="ax-content">
+    <div class="ax-inner">
+      <article class="cdata">
+      {{- partial "toc" . }}
+      {{- .Content }}
+      </article>
+      {{ partial "adsense" . }}
+    </div>
+  </div>
+</div>
+{{ end }}

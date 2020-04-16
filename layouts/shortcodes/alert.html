@@ -1,0 +1,16 @@
+{{- $message := "" -}}
+{{- $type := "" -}}
+{{- $badge := "" -}}
+{{- if .IsNamedParams }}
+{{- $message = .Get "message" -}}
+{{- $type = .Get "type" -}}
+{{- $badge = .Get "badge" -}}
+{{- else }}
+{{- $message = .Get 0 -}}
+{{- $type = .Get 1 -}}
+{{- $badge = .Get 2 -}}
+{{- end }}
+{{- if not $message }}
+{{- errorf "Missing required 'message'. Shortcode: 'alert'." -}}
+{{- end }}
+{{- partial "alert" (dict "Site" $.Site "Page" . "message" $message "type" $type "badge" $badge) -}}

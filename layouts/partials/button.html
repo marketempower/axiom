@@ -1,0 +1,38 @@
+{{- if not .text }}
+{{- errorf "Missing required 'text'. Partial: 'button'." -}}
+{{- end }}
+{{- $text := .text -}}
+{{- $type := .type | default "default" -}}
+{{- $svg := "" -}}
+{{- $class := "" -}}
+{{- with .icon }}
+{{- $svg = printf "svg/%s.svg" . -}}
+{{- $svg = partial $svg (dict "class" "fill-current h-4 w-auto mr-2") -}}
+{{- $class = "inline-flex items-center" -}}
+{{- end }}
+{{- $dot := . -}}
+{{- $href := "" -}}
+{{- with .href }}
+{{- $href = partial "cdn-src" (dict "Site" $.Site "Page" $dot "src" .) -}}
+{{- end }}
+{{/* verbose class names for purgecss */}}
+{{- $textColor700 := index (dict "default" "text-raven-700" "info" "text-blue-700" "warn" "text-orange-700" "alert" "text-red-700") $type -}}
+{{- $bgColor100 := index (dict "default" "bg-raven-100" "info" "bg-blue-100" "warn" "bg-orange-100" "alert" "bg-red-100") $type -}}
+{{- $bgColor200 := index (dict "default" "hover:bg-raven-200" "info" "hover:bg-blue-200" "warn" "hover:bg-orange-200" "alert" "hover:bg-red-200") $type -}}
+{{- $class = printf "%s rounded font-content-sans font-semibold %s %s %s py-2 px-4" $class $textColor700 $bgColor100 $bgColor200 -}}
+{{- $class = trim $class " " -}}
+{{- if $href }}
+<a class="{{ $class }}" href="{{ $href }}" role="button">
+  {{- with $svg }}
+  {{ . | safeHTML }}
+  {{- end }}
+  <span>{{ $text }}</span>
+</a>
+{{- else }}
+<button class="{{ $class }}" role="button">
+  {{- with $svg }}
+  {{ . | safeHTML }}
+  {{- end }}
+  <span>{{ $text }}</span>
+</button>
+{{- end }}

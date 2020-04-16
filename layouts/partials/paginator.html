@@ -1,0 +1,38 @@
+{{- $pag := $.Paginator -}}
+{{- if gt $pag.TotalPages 1 }}
+{{- $class := "block m-1 px-2 py-1" -}}
+{{- $number := "" }}
+{{- $enabled := "text-blue-600 hover:text-blue-800" -}}
+{{- $disabled := "text-gray-500 font-semibold cursor-not-allowed" -}}
+<div class="pagination flex justify-center text-sm mt-8">
+  {{- with $pag.First }}
+    <a class="{{ $class }} {{ $enabled }}" href="{{ .URL }}" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  {{- end }}
+    <a class="{{ $class }} {{ if not $pag.HasPrev }}{{ $disabled }}{{ else }}{{ $enabled }}{{ end }}" {{ if $pag.HasPrev }}href="{{ $pag.Prev.URL }}"{{ end }} aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+
+  {{- $ellipsed := false -}}
+  {{- $shouldEllipse := false -}}
+  {{- range $pag.Pagers }}
+    {{- $right := sub .TotalPages .PageNumber -}}
+    {{- $showNumber := or (le .PageNumber 3) (eq $right 0) -}}
+    {{- $showNumber := or $showNumber (and (gt .PageNumber (sub $pag.PageNumber 2)) (lt .PageNumber (add $pag.PageNumber 2))) -}}
+    {{- if $showNumber }}
+      {{- $ellipsed = false -}}
+      {{- $shouldEllipse = false -}}
+    {{- else }}
+      {{- $shouldEllipse = not $ellipsed -}}
+      {{- $ellipsed = true -}}
+    {{- end }}
+    {{- if $showNumber }}
+      <a class="{{ $class }} {{ $number }} {{ if eq . $pag }}{{ $disabled }}{{ else }}{{ $enabled }}{{ end }}" href="{{ .URL }}">{{ .PageNumber }}</a>
+    {{- else if $shouldEllipse }}
+      <a class="{{ $class }} {{ $disabled }}"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></a>
+    {{- end }}
+  {{- end }}
+
+  <a class="{{ $class }} {{ if not $pag.HasNext }}{{ $disabled }}{{ else }}{{ $enabled }}{{ end }}" {{ if $pag.HasNext }}href="{{ $pag.Next.URL }}"{{ end }} aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  {{- with $pag.Last }}
+  <a class="{{ $class }} {{ $enabled }}" href="{{ .URL }}" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  {{- end }}
+</div>
+{{- end }}

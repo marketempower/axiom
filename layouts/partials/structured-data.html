@@ -1,0 +1,65 @@
+{{- $imgMeta := partial "cdn-src" (dict "Site" $.Site "Page" . "src" (.Params.feature | default .Site.Params.image.default)) -}}
+{{- $imgBrand := partial "cdn-src" (dict "Site" $.Site "Page" . "src" .Site.Params.image.icon1To1) -}}
+
+{{- if .Params.feature }}
+{{- $imgFeature := partial "cdn-src" (dict "Site" $.Site "Page" . "src" .Params.feature "preset" "feature") -}}
+<link rel="preload" as="image" href="{{ $imgFeature }}">
+{{ end }}
+
+<title>{{ printf "%s : %s" .Title .Site.Title }}</title>
+
+{{- $subtitle := partial "subtitle" . }}
+{{- $description := partial "description" . }}
+{{- $author := partial "author-data" . }}
+
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<link rel="image_src" href="{{ $imgMeta | absURL }}">
+<meta property="og:image" content="{{ $imgMeta | absURL }}">
+<meta property="og:image:width" content="{{ .Site.Params.image.width }}">
+<meta property="og:image:height" content="{{ .Site.Params.image.height }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:locale" content="{{ replace .Site.LanguageCode "-" "_" | default "en_US" }}">
+<meta property="og:description" content="{{ $description }}">
+<meta name="description" content="{{ $description }}">
+<meta property="og:updated_time" content="{{ dateFormat "2006-01-02T15:04:05Z" .Lastmod.UTC | safeHTML }}">
+<meta property="fb:app_id" content="{{ .Site.Params.services.facebookApp }}">
+<meta name="author" content="{{ $author.name }}">
+<meta property="article:author" content="{{ $author.uri | absURL }}">
+<meta property="article:published_time" content="{{ dateFormat "2006-01-02T15:04:05Z" .Date.UTC | safeHTML }}">
+<meta property="article:modified_time" content="{{ dateFormat "2006-01-02T15:04:05Z" .Lastmod.UTC | safeHTML }}">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  {{- if .IsHome }}
+  "@type": "WebSite",
+  {{- else }}
+  "@type": "Article",
+  {{- end }}
+  "headline": {{ .Title }},
+  "alternativeHeadline": {{ $subtitle }},
+  "url": {{ .Permalink }},
+  "image": {{ $imgMeta | absURL }},
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ .Permalink }}
+  },
+  "description": {{ $description }},
+  "author": {
+    "@type": "Person",
+    "name": {{ $author.name }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ .Site.Title }},
+    "logo": {
+      "@type": "ImageObject",
+      "url": {{ $imgBrand | absURL }}
+    }
+  },
+  "datePublished": {{ dateFormat "2006-01-02T15:04:05Z" .Date.UTC | safeHTML }},
+  "dateModified": {{ dateFormat "2006-01-02T15:04:05Z" .Lastmod.UTC | safeHTML }},
+  "articleBody": {{ trim .Content "\n" }}
+}
+</script>

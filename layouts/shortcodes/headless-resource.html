@@ -1,0 +1,10 @@
+{{- $page := .Get 0 -}}
+{{- if not $page }}
+{{- errorf "Missing required 'page/bundle path'. Shortcode: 'headless-resource'." -}}
+{{- end }}
+{{- $s := split (trim $page "/") "/" -}}
+{{- $bId := printf "%s%s" "/" (index $s 0) -}}
+{{- $pId := printf "%s%s" (index $s 1) "*" -}}
+{{- $b := .Site.GetPage $bId -}}
+{{- $p := $b.Resources.GetMatch $pId -}}
+{{- $p.Content -}}

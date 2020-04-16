@@ -1,0 +1,90 @@
+/* theme */
+/* logo */
+.ax-logo {
+  & img,
+  & svg {
+    @apply h-9 w-auto;
+  }
+}
+
+/* layouts */
+.default-single,
+.default-terms,
+.default-taxonomy,
+.default-section,
+.posts-single {
+  & > .ax-header,
+  & > .ax-feature,
+  & > .ax-content {
+    @apply flex justify-center;
+    & > .ax-inner {
+      @apply flex-grow min-w-0 max-w-2xlp mx-4 mt-8;
+    }
+  }
+  & > .ax-feature > .ax-inner {
+    @apply max-w-5xl;
+  }
+}
+
+.header {
+  @apply relative shadow-b bg-white py-3 flex justify-center;
+  & > .ax-inner {
+    @apply flex flex-grow min-w-0 max-w-6xl mx-4;
+    & > .ax-logo {
+      @apply flex-1;
+    }
+    & > .ax-user {
+      @apply flex items-center ml-auto;
+    }
+  }
+}
+
+.footer {
+  @apply flex justify-center border-t border-gray-200 bg-white mt-8 py-6;
+  & > .ax-inner {
+    @apply flex-grow min-w-0 max-w-6xl mx-4;
+  }
+}
+
+@screen md {
+  .default-single,
+  .default-terms,
+  .default-taxonomy,
+  .default-section,
+  .posts-single {
+    & > .ax-header,
+    & > .ax-feature,
+    & > .ax-content {
+      & > .ax-inner {
+        @apply mx-8;
+      }
+    }
+  }
+
+  .header, .footer {
+    & > .ax-inner {
+      @apply mx-8;
+    }
+  }
+}
+
+/* <h1>:main-headline, title */
+/* ff: title, fs: 40px (2.5rem), fw: 400, lh: 48px (1.2), ls: normal */
+h1.title-page, h1.title-post {
+  @apply font-content-title text-4xlp font-normal leading-tight tracking-default;
+}
+
+h1.title-section {
+  @apply uppercase tracking-wide text-2xl text-raven-800 font-semibold;
+}
+
+p.subtitle-post {
+  @apply text-2xl font-content-sans font-light text-raven-500 mt-3;
+}
+
+/* <hr> */
+.hr-fade {
+  @apply h-px;
+  background-image: linear-gradient(to left, rgba(0,0,0,0), rgba(0,0,0,0.24), rgba(0,0,0,0));
+  border: 0;
+}

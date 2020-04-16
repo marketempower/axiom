@@ -1,0 +1,284 @@
+/* cdata */
+/* Markdown to html (style-less, class-less) CMS content */
+/* Specificity is exact match to prevent excess cascading */
+
+.cdata {
+  /* <hx>, <p>, <ul>, <ol>:shared */
+  & > h1,
+  & > h2,
+  & > h3,
+  & > h4,
+  & > h5,
+  & > h6,
+  & > p,
+  & > ul,
+  & > ol {
+    @apply text-raven-900a;
+
+    /* Deal with long non-spaced strings that break layout */
+    word-break: break-word;
+    @apply break-words;
+  }
+
+  /* <hx>:typography */
+  /* ff: sans, fw: 600, ls: -0.025em (-0.65px, -0.85px) */
+  & > h1,
+  & > h2,
+  & > h3,
+  & > h4,
+  & > h5,
+  & > h6 {
+    @apply font-content-sans;
+    @apply font-semibold;
+    @apply tracking-tight;
+  }
+
+  /* <h1>:typography */
+  /* fs: 34px (2.125rem), lh: 38px (1.117647) */
+  & > h1 {
+    font-size: 2.125rem;
+    line-height: 1.117647;
+  }
+
+  /* <hx>:typography */
+  /* fs: 26px (1.625rem), lh: 30px (1.153845) */
+  & > h2 {
+    font-size: 1.625rem;
+    line-height: 1.153845;
+  }
+
+  & > h3,
+  & > h4,
+  & > h5,
+  & > h6 {
+    @apply text-2xl;
+    @apply leading-tightly;
+  }
+
+  /* <p>, <ul>, <ol>, <blockquote p>:typography */
+  /* ff: serif, fs: 21px (1.3125rem), fw: 400, lh: 33px (1.57143), ls: -0.004em (-0.084px) */
+  & > p,
+  & > ul,
+  & > ol,
+  & > blockquote p {
+    @apply font-content-serif;
+    font-size: 1.3125rem;
+    @apply font-normal;
+    line-height: 1.57143;
+    letter-spacing: -0.004em;
+  }
+
+  /* margin-top */
+  & > *:first-child {
+    @apply mt-0;
+  }
+
+  & > h1 {
+    @apply mt-10;
+  }
+
+  /* included: div, iframe (embedded shortcodes) */
+  & > h2,
+  & > h3,
+  & > h4,
+  & > h5,
+  & > h6,
+  & > p,
+  & > blockquote,
+  & > figure,
+  & > table,
+  & > hr,
+  & > div,
+  & > nav,
+  & > aside,
+  & > iframe {
+    @apply mt-9;
+  }
+
+  & > ul,
+  & > ol {
+    @apply mt-8;
+  }
+
+  & > pre {
+    @apply mt-10;
+  }
+
+  /* margin-top:stacked */
+  /* excluded: blockquote, table, div, iframe (need extra space) */
+  & > h1 + h1,
+  & > h1 + h2,
+  & > h1 + h3,
+  & > h1 + h4,
+  & > h1 + h5,
+  & > h1 + h6,
+  & > h1 + p,
+  & > h1 + ul,
+  & > h1 + ol,
+  & > h2 + h2,
+  & > h2 + h3,
+  & > h2 + h4,
+  & > h2 + h5,
+  & > h2 + h6,
+  & > h2 + p,
+  & > h2 + ul,
+  & > h2 + ol,
+  & > h3 + h3,
+  & > h3 + h4,
+  & > h3 + h5,
+  & > h3 + h6,
+  & > h3 + p,
+  & > h3 + ul,
+  & > h3 + ol,
+  & > h4 + h4,
+  & > h4 + h5,
+  & > h4 + h6,
+  & > h4 + p,
+  & > h4 + ul,
+  & > h4 + ol,
+  & > h5 + h5,
+  & > h5 + h6,
+  & > h5 + p,
+  & > h5 + ul,
+  & > h5 + ol,
+  & > h6 + h6,
+  & > h6 + p,
+  & > h6 + ul,
+  & > h6 + ol {
+    @apply mt-3;
+  }
+
+  /* margin-top:nested */
+  & > ul ul,
+  & > ol ol,
+  & li ul,
+  & li ol,
+  & li p,
+  & > blockquote p {
+    @apply mt-0;
+  }
+
+  /* <a>:link, active, visited */
+  & > a:active,
+  & > a:link,
+  & > a:visited,
+  & > blockquote a:active,
+  & > blockquote a:link,
+  & > blockquote a:visited,
+  & > figure figcaption a:active,
+  & > figure figcaption a:link,
+  & > figure figcaption a:visited,
+  & > ol li a:active,
+  & > ol li a:link,
+  & > ol li a:visited,
+  & > p a:active,
+  & > p a:link,
+  & > p a:visited,
+  & > ul li a:active,
+  & > ul li a:link,
+  & > ul li a:visited,
+  & > .footnotes a:active,
+  & > .footnotes a:link,
+  & > .footnotes a:visited
+  {
+    @apply text-blue-600;
+  }
+
+  /* <a>:hover */
+  & > a:hover,
+  & > p a:hover,
+  & > ul li a:hover,
+  & > ol li a:hover,
+  & > blockquote a:hover,
+  & > figure figcaption a:hover,
+  & > .footnotes a:hover {
+    @apply text-blue-800 underline;
+  }
+
+  /* <blockquote> */
+  /*
+   Needs to support blockquotes with multiple structures:
+   1 markdown: quote only, no footer, no cite
+   2 markdown: closing p tag </p>, plus cite
+   3 markdown: previous plus footer with child cite
+   4 shortcode: same as previous but text input only
+   */
+  & > blockquote {
+    @apply pl-5;
+    @apply border-l-4;
+    @apply border-raven-300;
+
+    /* <blockquote footer, cite, or dash> */
+    @apply text-base;
+    @apply text-raven-500;
+  }
+
+  /* <blockquote p> */
+  & > blockquote p {
+    /* see above at <blockquote p>:typography */
+    @apply text-raven-700;
+  }
+
+  /* <ul>, <ol>, <li> */
+  & > ul:not(.list-none),
+  & > ol {
+    padding-inline-start: 1.875rem;
+  }
+
+  & > ul:not(.list-none) {
+    @apply list-disc;
+  }
+
+  & > ol {
+    @apply list-decimal;
+  }
+
+  /* <hr> */
+  & > hr {
+    @apply h-px;
+    background-image: linear-gradient(to left, rgba(0,0,0,0), rgba(0,0,0,0.24), rgba(0,0,0,0));
+    border: 0;
+  }
+
+  /* <table> */
+  & > table {
+    @apply w-full border-collapse;
+
+    /* <th> */
+    & th {
+      @apply font-semibold text-raven-700 p-2 bg-gray-100;
+    }
+
+    /* <td> */
+    & td {
+      @apply p-2 border-t border-gray-200;
+
+      &:first-child {
+        @apply border-gray-300;
+      }
+    }
+  }
+
+  /* footnotes */
+  & .footnotes {
+    @apply text-sm;
+    @apply text-raven-500;
+    & > hr {
+      @apply mt-6;
+      @apply mb-2;
+    }
+    & > ol {
+      @apply list-decimal;
+    }
+    /* workaround until hugo fixes
+     https://github.com/gohugoio/hugo/issues/6807 */
+    & .footnote-backref {
+      visibility: hidden;
+      &::before {
+        content: "\2191 \00A0";
+        visibility: visible;
+      }
+    }
+  }
+  /* end */
+}

@@ -1,0 +1,12 @@
+name = "Axiom"
+license = "CC-BY-SA-4.0"
+licenselink = "https://github.com/marketempower/axiom/blob/master/LICENSE"
+homepage = "https://github.com/marketempower/axiom"
+description = "Axiom is a powerful, high performance, modular Hugo theme, designed to make the readers of your content and the search engines happy."
+tags = ["seo", "organic-search", "structured-data", "cdn", "cloudinary", "netlify", "jamstack", "responsive-images", "pagespeed-95", "sharing", "atom-feed", "npm-scripts", "custom-css", "custom-js", "blog", "fast", "responsive", "tailwindcss", "alpinejs", "seo"]
+features = ["seo", "organic-search", "structured-data", "cdn", "cloudinary", "netlify", "jamstack", "responsive-images", "pagespeed-95", "sharing", "atom-feed", "npm-scripts", "custom-css", "custom-js", "blog", "fast", "responsive", "tailwindcss", "alpinejs", "seo"]
+min_version = "0.60.0"
+
+[author]
+name = "Jhaura Wachsman"
+homepage = "https://www.jhaurawachsman.com/"

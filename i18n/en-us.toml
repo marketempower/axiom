@@ -1,0 +1,80 @@
+[home]
+other = "Home"
+
+[all]
+other = "All"
+
+[recent]
+other = "Recent"
+
+[posts]
+other = "Posts"
+
+[tag]
+other = "Tag"
+
+[category]
+other = "Category"
+
+[info]
+other = "Info"
+
+[information]
+other = "Infromation"
+
+[warn]
+other = "Warn"
+
+[warning]
+other = "Warning"
+
+[alert]
+other = "Alert"
+
+[download]
+other = "Download"
+
+[twitterShare]
+other = "Share on Twitter"
+
+[facebookShare]
+other = "Share on Facebook"
+
+[facebook]
+other = "Facebook"
+
+[github]
+other = "Github"
+
+[instagram]
+other = "Instagram"
+
+[linkedin]
+other = "LinkedIn"
+
+[pinterest]
+other = "Pinterest"
+
+[stackoverflow]
+other = "Stack Overflow"
+
+[twitter]
+other = "Twitter"
+
+[youtube]
+other = "Youtube"
+
+[e404Title]
+other = "Page Not Found"
+
+[e404Msg]
+other = "Sorry, we can't find that page. Please visit the {{ .homeLink }} page. (404 Error)"
+
+[theme]
+other = "Axiom"
+
+[attribution]
+other = "Axiom"
+
+[poweredBy]
+other = "Powered by"

@@ -1,0 +1,20 @@
+{{- if not .message }}
+{{- errorf "Missing required 'message'. Partial: 'alert'." -}}
+{{- end }}
+{{- $type := .type | default "default" -}}
+{{- $badge := "" -}}
+{{- with .badge }}
+{{- $badge = . -}}
+{{- else }}
+{{- $badge = index (dict "default" "info" "info" "info" "warn" "warn" "alert" "alert") $type -}}
+{{- end }}
+{{- $badge = $badge | default "info" -}}
+{{/* verbose class names for purgecss */}}
+{{- $bgColor100 := index (dict "default" "bg-raven-100" "info" "bg-blue-100" "warn" "bg-orange-100" "alert" "bg-red-100") $type -}}
+{{- $bgColor500 := index (dict "default" "bg-raven-500" "info" "bg-blue-500" "warn" "bg-orange-500" "alert" "bg-red-500") $type -}}
+{{- $textColor100 := index (dict "default" "text-raven-100" "info" "text-blue-100" "warn" "text-orange-100" "alert" "text-red-100") $type -}}
+{{- $textColor700 := index (dict "default" "text-raven-700" "info" "text-blue-700" "warn" "text-orange-700" "alert" "text-red-700") $type -}}
+<div class="flex items-center justify-center font-content-sans rounded {{ $bgColor100 }} px-4 py-4" role="alert">
+  <span class="text-xs font-bold uppercase leading-none rounded-full {{ $textColor100 }} {{ $bgColor500 }} px-2 py-1 mr-3">{{ $badge }}</span>
+  <span class="font-semibold {{ $textColor700 }}">{{ .message | markdownify }}</span>
+</div>

@@ -1,0 +1,1 @@
+<svg {{ with .class }}class="{{ . }}" {{ end }}{{ with .style }}style="{{ . | safeCSS }}" {{ end }}viewBox="{{ with .viewbox }}{{ . }}{{ else }}0 0 32 32{{ end }}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M32 25.84V22H0v3.84h32zM32 14H0v3.84h32V14zm0-4.16V6H0v3.84h32z"/></svg>

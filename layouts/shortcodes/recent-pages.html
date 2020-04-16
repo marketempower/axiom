@@ -1,0 +1,20 @@
+{{- $limit := "" -}}
+{{- $class := "" -}}
+{{- $style := "" -}}
+{{- if .IsNamedParams }}
+{{- $limit = .Get "limit" -}}
+{{- $class = .Get "class" -}}
+{{- $style = .Get "style" -}}
+{{- else }}
+{{- $limit = .Get 0 -}}
+{{- $class = .Get 1 -}}
+{{- $style = .Get 2 -}}
+{{- end }}
+{{- $limit = $limit | default 7 -}}
+{{- $class = $class | default "mt-8" -}}
+{{- $pages := first $limit (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) -}}
+{{- range $pages}}
+<div class="{{ $class }}"{{ with $style }} style="{{ . | safeCSS }}"{{ end }}>
+  {{ .Render "summary" }}
+</div>
+{{- end }}

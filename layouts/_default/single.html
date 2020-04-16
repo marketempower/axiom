@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="default-single">
+  {{ if .Params.feature -}}
+  <div class="ax-feature">
+    <div class="ax-inner">
+      {{- partial "feature" . }}
+    </div>
+  </div>
+  {{- end -}}
+
+  <div class="ax-content">
+    <div class="ax-inner">
+      <h1 class="title-page">{{ .Title }}</h1>
+
+      <article class="cdata mt-8">
+        {{ .Content }}
+      </article>
+    </div>
+  </div>
+</div>
+{{ end }}

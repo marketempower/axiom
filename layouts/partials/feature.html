@@ -1,0 +1,16 @@
+{{/*
+  Parameters:
+  feature: string
+    expected: filename_or_public_id (uuid)
+  caption: string
+
+  Example front matter usage (yaml):
+  ---
+  # With traditional filename
+  feature: filename.ext
+  # With CDN public Id
+  feature: 5e39e315-c06c-4d81-9b4a-35fca661621c
+  caption: "Caption text (will also be used for alt)."
+  ---
+*/}}
+{{- partial "figure" (dict "Site" $.Site "Page" . "src" .Params.feature "alt" .Title "caption" .Params.caption "preset" "feature") -}}

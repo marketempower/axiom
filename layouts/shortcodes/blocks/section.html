@@ -1,0 +1,23 @@
+{{- $class := "" -}}
+{{- $width := "" -}}
+{{- $style := "" -}}
+{{- $mdown := "" -}}
+{{- if .IsNamedParams }}
+{{- $class = .Get "class" -}}
+{{- $width = .Get "width" -}}
+{{- $style = .Get "style" -}}
+{{- $mdown = .Get "mdown" -}}
+{{- else }}
+{{- $class = .Get 0 -}}
+{{- $width = .Get 1 -}}
+{{- $style = .Get 2 -}}
+{{- $mdown = .Get 3 -}}
+{{- end }}
+{{- $class = $class | default "flex-grow min-w-0 mx-4 md:mx-8 mt-8" -}}
+{{- $width = $width | default "max-w-5xl" -}}
+{{- $mdown = $mdown | default "on" -}}
+<div class="section flex justify-center">
+  <div class="section-inner {{ $class }}{{ with $width }} {{ . }}{{ end }}{{ with (eq $mdown "on") }} cdata{{ end }}"{{ with $style }} style="{{ . | safeCSS }}"{{ end }}>
+    {{ if (eq $mdown "on") }}{{ .Inner | markdownify }}{{ else }}{{ .Inner }}{{ end }}
+  </div>
+</div>

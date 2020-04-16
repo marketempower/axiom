@@ -1,0 +1,10 @@
+{{- $data := (dict "default" (dict "name" "Unknown" "uri" "#" "email" "#" "twitter" "#" "image" "#")) -}}
+{{- with .Site.Data.author }}
+{{- $data = . -}}
+{{- end }}
+{{- $author := "" -}}
+{{- with .Params.author }}
+{{- $author = index $data . -}}
+{{- end }}
+{{- $author = $author | default $data.default -}}
+{{- return $author }}

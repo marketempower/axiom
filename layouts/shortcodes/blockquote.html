@@ -1,0 +1,29 @@
+{{/*
+  Note: In order to support Markdown blockquotes (> Quote)
+  no CSS styles or classes should be added inline here.
+  Will inherit styles from the Markdown CSS file (cdata.css).
+*/}}
+{{- $quote := "" -}}
+{{- $attr := "" -}}
+{{- $cite := "" -}}
+{{- $link := "" -}}
+{{- if .IsNamedParams }}
+{{- $quote = .Get "quote" -}}
+{{- $attr = .Get "attr" -}}
+{{- $cite = .Get "cite" -}}
+{{- $link = .Get "link" -}}
+{{- else }}
+{{- $quote = .Get 0 -}}
+{{- $attr = .Get 1 -}}
+{{- $cite = .Get 2 -}}
+{{- $link = .Get 3 -}}
+{{- end }}
+{{- if not $quote }}
+{{- errorf "Missing required 'quote'. Shortcode: 'blockquote'." -}}
+{{- end }}
+<blockquote>
+  <p>{{ $quote }}</p>
+  {{- if $attr }}
+  <footer>&#8212; {{ $attr }}{{ if $cite }} <cite title="{{ $cite }}">{{ with $link }}<a rel="noopener nofollow" href="{{ . }}">{{ end }}{{ $cite }}{{ with $link }}</a>{{ end }}</cite>{{ end }}</footer>
+  {{- end }}
+</blockquote>

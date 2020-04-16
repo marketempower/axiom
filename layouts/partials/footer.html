@@ -1,0 +1,28 @@
+{{- $copyright := (T "copyright" .) | default .Site.Copyright | default .Site.Title -}}
+<footer class="footer">
+  <div class="ax-inner">
+    {{- $currentPage := . }}
+    <nav class="flex items-center justify-center">
+      {{- range (.Site.Menus.foot) }}
+      {{- $isCurrent := (eq (trim $currentPage.RelPermalink "/") (trim .URL "/")) }}
+      <a class="ml-3 first:ml-0 text-sm{{ if $isCurrent }} text-gray-500 cursor-not-allowed{{ else }} text-gray-600 hover:text-gray-800{{ end }}"{{ if not $isCurrent }} href="{{ .URL | relLangURL }}"{{ end }}>{{ .Name }}</a>
+      {{- end }}
+    </nav>
+
+    {{- with .Site.Params.social.footer }}
+    <div class="footer-social flex items-center justify-center mt-4">
+      {{- range . }}
+      {{ partial "social-li" (dict "Site" $.Site "id" . ) }}
+      {{- end }}
+    </div>
+    {{- end }}
+
+    <div class="footer-copyright text-sm text-center text-gray-500 mt-4">
+      &#169; {{ .Site.Params.copyrightYear }}-{{ dateFormat "2006" now.UTC }} {{ $copyright }}
+    </div>
+
+    <div class="text-xs text-center text-gray-500 mt-2">
+      {{ printf `%s <a href="%s">%s</a>` (T "poweredBy" .) .Site.Data.theme.url (T "attribution" .) | safeHTML }}
+    </div>
+  </div>
+</footer>

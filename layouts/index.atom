@@ -1,0 +1,50 @@
+{{- $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
+{{- $limit := .Site.Config.Services.RSS.Limit -}}
+{{- if ge $limit 1 -}}
+{{- $pages = $pages | first $limit -}}
+{{- end -}}
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ .Site.LanguageCode }}">
+  <title>{{ .Site.Title }}</title>
+  <subtitle>{{ partial "subtitle" . }}</subtitle>
+  <id>{{ "/" | absLangURL }}</id>
+  <author>
+    <name>{{ .Site.Title }}</name>
+    <uri>{{ "/" | absLangURL }}</uri>
+  </author>
+  {{- with .Site.Copyright }}
+  <rights>{{ . }}</rights>
+  {{- end }}
+  {{- with .Site.Params.image.icon1To1 }}
+  <icon>{{ partial "cdn-src" (dict "Site" $.Site "Page" . "src" .) | absURL }}</icon>
+  {{- end }}
+  {{- with .Site.Params.image.icon2To1 }}
+  <logo>{{ partial "cdn-src" (dict "Site" $.Site "Page" . "src" .) | absURL }}</logo>
+  {{- end }}
+  <updated>{{ dateFormat "2006-01-02T15:04:05Z" now.UTC | safeHTML }}</updated>
+  {{- with .OutputFormats.Get "ATOM" }}
+  {{ printf `<link rel="self" type="%s" href="%s" hreflang="%s"/>` .MediaType.Type .Permalink $.Site.LanguageCode | safeHTML }}
+  {{- end }}
+  {{- range .AlternativeOutputFormats }}
+  {{ printf `<link rel="alternate" type="%s" href="%s" hreflang="%s"/>` .MediaType.Type .Permalink $.Site.LanguageCode | safeHTML }}
+  {{- end }}
+  {{- range $pages }}
+  <entry>
+    <title>{{ .Title }}</title>
+    {{- $author := partial "author-data" . -}}
+    <author>
+      <name>{{ $author.name }}</name>
+      <uri>{{ $author.uri }}</uri>
+    </author>
+    <id>{{ .Permalink }}</id>
+    {{- if .IsTranslated -}}
+    {{ range .Translations }}
+    <link rel="alternate" href="{{ .Permalink }}" hreflang="{{ .Language.Lang }}"/>
+    {{- end -}}
+    {{ end }}
+    <updated>{{ dateFormat "2006-01-02T15:04:05Z" .Lastmod.UTC | safeHTML }}</updated>
+    <published>{{ dateFormat "2006-01-02T15:04:05Z" .Date.UTC | safeHTML }}</published>
+    <content type="html">{{ trim .Content "\n" }}</content>
+  </entry>
+  {{- end }}
+</feed>

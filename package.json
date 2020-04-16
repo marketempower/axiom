@@ -1,0 +1,42 @@
+{
+  "private": true,
+  "name": "axiom",
+  "version": "0.5.0",
+  "description": "Axiom is a powerful, high performance, modular Hugo theme, designed to make the readers of your content and the search engines happy.",
+  "author": "Jhaura Wachsman <jw@jhaurawachsman.com> (https://www.jhaurawachsman.com/)",
+  "homepage": "https://github.com/marketempower/axiom",
+  "repository": "github:marketempower/axiom.git",
+  "license": "CC-BY-SA-4.0",
+  "scripts": {
+    "css": "npm run css:type && npm run css:app",
+    "css:app": "postcss ./src/index.css --verbose -o ./assets/app.css",
+    "css:type": "postcss ./src/type.css --verbose -o ./assets/type.css",
+    "js": "npm run js:prism && npm run js:index && npm run js:app",
+    "js:app": "concat -o ./assets/app.js ./src/alpine.min.js ./src/index.min.js",
+    "js:index": "terser ./src/index.js -c toplevel,sequences=false,drop_console=true -o ./src/index.min.js",
+    "js:prism": "concat -o ./assets/prism.js ./src/prism.min.js",
+    "dev": "NODE_ENV=development npm run css && npm run js",
+    "prd": "NODE_ENV=production npm run css && npm run js",
+    "watch": "npm run watch:css & npm run watch:js",
+    "watch:css": "chokidar \"./src/**/*.css\" \"./tailwind.config.js\" -c \"NODE_ENV=development npm run css\"",
+    "watch:js": "chokidar \"./src/**/*.js\" -c \"NODE_ENV=development npm run js\""
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.1.2",
+    "alpinejs": "^1.12.0",
+    "autoprefixer": "^9.7.6",
+    "chokidar-cli": "^2.1.0",
+    "concat": "^1.0.3",
+    "cssnano": "^4.1.10",
+    "del-cli": "^3.0.0",
+    "postcss-cli": "^7.1.0",
+    "postcss-import": "^12.0.1",
+    "postcss-nesting": "^7.0.1",
+    "tailwindcss": "^1.2.0",
+    "terser": "^4.6.11"
+  },
+  "browserslist": [
+    "> 1%"
+  ],
+  "dependencies": {}
+}

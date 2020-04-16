@@ -1,0 +1,18 @@
+{{- $bundleJS := printf "%s?v=%d" "bundle.js" now.Unix }}
+<link rel="preload" as="script" href="{{ $bundleJS | relURL | safeHTML }}">
+<link rel="preconnect" href="https://www.google-analytics.com">
+<link rel="preconnect" href="https://stats.g.doubleclick.net">
+<link rel="preconnect" href="https://www.googleadservices.com">
+
+{{- $gtag := printf "%s%s" "https://www.googletagmanager.com/gtag/js?id=" .Site.Params.services.analyticsId }}
+<link rel="preload" as="script" href="{{ $gtag | safeHTML }}">
+<script src="{{ $gtag | safeHTML }}"></script>
+<script>
+  window.dataLayer=window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config','{{ .Site.Params.services.analyticsId }}');
+  {{- with .Site.Params.services.adwordsId }}
+  gtag('config','{{ . }}');
+  {{- end }}
+</script>

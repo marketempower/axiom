@@ -1,0 +1,14 @@
+{{- $justify := "" -}}
+{{- $class := "" -}}
+{{- if .IsNamedParams }}
+{{- $justify = .Get "justify" -}}
+{{- $class = .Get "class" -}}
+{{- else }}
+{{- $justify = .Get 0 -}}
+{{- $class = .Get 1 -}}
+{{- end }}
+{{- $justify = $justify | default "center" -}}
+{{- $justify = index (dict "start" "justify-start" "center" "justify-center" "end" "justify-end" "between" "justify-between" "around" "justify-around") $justify -}}
+<div class="flex {{ $justify }}{{ with $class }} {{ . }}{{ end }}">
+  {{ .Inner }}
+</div>

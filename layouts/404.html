@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div class="default-single">
+  <div class="ax-content">
+    <div class="ax-inner">
+      <h1 class="title-page">{{ (T "e404Title" .) }}</h1>
+
+      <article class="cdata mt-8">
+        {{- $homeLink := printf `<a href="/">%s</a>` (T "home" .) }}
+        <p>{{ (T "e404Msg" (dict "dot" . "homeLink" $homeLink)) | safeHTML }}</p>
+      </article>
+    </div>
+  </div>
+</div>
+{{ end }}

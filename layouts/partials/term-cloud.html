@@ -1,0 +1,16 @@
+{{- $term := "" -}}
+{{- $showcount := "" -}}
+{{- with .term }}
+{{- $term = . -}}
+{{- end }}
+{{- with .count }}
+{{- $showcount = . -}}
+{{- end }}
+{{- $term = $term | default "tags" -}}
+{{- $term = index $.Site.Taxonomies $term -}}
+<div class="flex flex-wrap justify-center">
+  {{- range $term }}
+  {{- $count := .Count -}}
+  <a class="rounded font-content-sans font-semibold text-raven-700 bg-raven-100 hover:bg-raven-200 py-2 px-4 m-2" href="{{ .Page.Permalink }}">{{ .Page.Title | humanize }}{{ with $showcount }} ({{ $count }}){{ end }}</a>
+  {{- end }}
+</div>

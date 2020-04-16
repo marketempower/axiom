@@ -1,0 +1,16 @@
+{{- $src := "" -}}
+{{- $preset := "" -}}
+{{- $type := "" -}}
+{{- if .IsNamedParams }}
+{{- $src = .Get "src" -}}
+{{- $preset = .Get "preset" -}}
+{{- $type = .Get "type" -}}
+{{- else }}
+{{- $src = .Get 0 -}}
+{{- $preset = .Get 1 -}}
+{{- $type = .Get 2 -}}
+{{- end }}
+{{- if not $src }}
+{{- errorf "Missing required 'src'. Shortcode: 'cdn-url'." -}}
+{{- end }}
+{{- partial "cdn-src" (dict "Site" $.Site "Page" . "src" $src "preset" $preset "type" $type) -}}

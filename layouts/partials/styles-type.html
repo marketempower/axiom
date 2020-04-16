@@ -1,0 +1,14 @@
+{{- if and (.Site.Params.font.files) (reflect.IsSlice .Site.Params.font.files) }}
+{{- $host := partial "cdn-src" (dict "Site" $.Site "Page" . "src" .Site.Params.font.path "type" "raw") }}
+{{- range .Site.Params.font.files }}
+<link rel="preload" href="{{ printf "%s%s" $host . | safeHTML }}" as="font" type="{{ $.Site.Params.font.type }}" crossorigin>
+{{- end }}
+
+{{- with resources.Get "type.css" }}
+{{- $vars := dict "host" $host "Site" $.Site "Page" . }}
+{{- $typeCSS := . | resources.ExecuteAsTemplate "type.css" $vars }}
+{{- $typeCSS = printf "%s?v=%d" $typeCSS.RelPermalink now.Unix }}
+<link rel="preload" as="style" href="{{ $typeCSS | safeHTML }}" media="all">
+<link rel="stylesheet" href="{{ $typeCSS | safeHTML }}" media="all">
+{{- end }}
+{{- end }}

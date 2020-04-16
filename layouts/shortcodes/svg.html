@@ -1,0 +1,21 @@
+{{- $name := "" -}}
+{{- $class := "" -}}
+{{- $style := "" -}}
+{{- $viewbox := "" -}}
+{{- if .IsNamedParams }}
+{{- $name = .Get "name" -}}
+{{- $class = .Get "class" -}}
+{{- $style = .Get "style" -}}
+{{- $viewbox = .Get "viewbox" -}}
+{{- else }}
+{{- $name = .Get 0 -}}
+{{- $class = .Get 1 -}}
+{{- $style = .Get 2 -}}
+{{- $viewbox = .Get 3 -}}
+{{- end }}
+{{- if not $name }}
+{{- errorf "Missing required 'name'. Shortcode: 'svg'." -}}
+{{- end }}
+{{- $name = printf "svg/%s.svg" $name -}}
+{{- $class := $class | default "fill-current" -}}
+{{- partial $name (dict "class" $class "style" $style "viewbox" $viewbox) -}}

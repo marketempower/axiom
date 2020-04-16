@@ -1,0 +1,18 @@
+{{ define "main" }}
+{{- $taxonomy := .Data.Singular -}}
+{{- $title := printf "%s%s %s" (T $taxonomy | default  (humanize $taxonomy)) ":" .Title -}}
+<div class="default-taxonomy">
+  <div class="ax-content">
+    <div class="ax-inner">
+      <h1 class="title-section">{{ $title | safeHTML }}</h1>
+
+      {{- range .Paginator.Pages }}
+      <div class="mt-8">
+        {{ .Render "summary" }}
+      </div>
+      {{- end }}
+      {{- partial "paginator" . -}}
+    </div>
+  </div>
+</div>
+{{ end }}

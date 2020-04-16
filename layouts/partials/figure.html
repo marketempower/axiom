@@ -1,0 +1,61 @@
+{{/*
+Figure named parameters:
+src: img name, uuid, path, or URL
+link: img hyperlink
+target: img hyperlink target
+rel: img hyperlink relation
+alt: img alternate text
+width: img width attribute
+height: img height attribute
+
+title: figure title (h4)
+caption: figure caption (markdown supported)
+attr: attribution text (markdown within the value of attr supported)
+attrlink: attribution hyperlink
+
+class: figure html class attribute
+imgclass: img html class attribute
+captionclass: figcaption html class attribute
+
+preset: cdn transform preset used in partial "cdn-src"
+
+Example usage in partials (the "dict src" is used in partial "cdn-src"):
+{{- partial "figure" (dict "Site" $.Site "Page" . "src" $src "alt" $alt "caption" $caption "preset" "feature" ...etc) -}}
+*/}}
+{{- $imgSrc := partial "cdn-src" (dict "Site" $.Site "Page" . "src" .src "preset" .preset) }}
+{{- $imgClass := .imgclass | default "mb-2 mx-auto leading-none shadow-xl" }}
+{{- $captionClass := .captionclass | default "text-sm text-right text-raven-500" }}
+
+<figure{{ with .class }} class="{{ . }}"{{ end }}>
+{{ if .link -}}
+<a href="{{ .link }}"{{ with .target }} target="{{ . }}"{{ end }}{{ with .rel }} rel="{{ . }}"{{ end }}>
+{{- end -}}
+<img
+class="{{ $imgClass }}"
+src="{{ $imgSrc }}"
+{{- if or .alt .caption }}
+alt="{{ with .alt }}{{ . }}{{ else }}{{ .caption | markdownify | plainify }}{{ end }}"
+{{- end }}
+{{- with .width }}
+width="{{ . }}"
+{{- end }}
+{{- with .height }}
+height="{{ . }}"
+{{- end }}><!-- /img -->
+{{- if .link }}</a>{{ end }}
+{{- if or (or (.title) (.caption)) (.attr) }}
+<figcaption class="{{ $captionClass }}">
+{{- with (.title) }}
+<h4>{{ . }}</h4>
+{{- end }}
+{{- if or (.caption) (.attr) }}
+<p>{{- .caption | markdownify -}}
+{{ if .attr }} {{ end }}{{/* yup, just a space */}}
+{{- with .attrlink }}<a href="{{ . }}">{{- end -}}
+{{ .attr | markdownify }}
+{{- if .attrlink }}</a>{{- end -}}
+</p>
+{{- end }}
+</figcaption>
+{{- end }}
+</figure>

@@ -1,0 +1,11 @@
+{{- $term := "" -}}
+{{- $count := "" -}}
+{{- if .IsNamedParams }}
+{{- $term = .Get "term" -}}
+{{- $count = .Get "count" -}}
+{{- else }}
+{{- $term = .Get 0 -}}
+{{- $count = .Get 1 -}}
+{{- end }}
+{{- $term = $term | default "tags" -}}
+{{- partial "term-cloud" (dict "Site" $.Site "Page" . "term" $term "count" $count) -}}

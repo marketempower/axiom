@@ -1,0 +1,5 @@
+{{- $src := .Get "src" -}}
+{{- if not $src }}
+{{- errorf "Missing required 'image'. Shortcode: 'figure'." -}}
+{{- end }}
+{{- partial "figure" (dict "Site" $.Site "Page" . "src" $src "alt" (.Get "alt") "caption" (.Get "caption") "link" (.Get "link") "target" (.Get "target") "rel" (.Get "rel") "width" (.Get "width") "height" (.Get "height") "title" (.Get "title") "attr" (.Get "attr") "attrlink" (.Get "attrlink") "class" (.Get "class") "imgclass" (.Get "imgclass") "captionclass" (.Get "captionclass") "preset" (.Get "preset" | default "page")) -}}

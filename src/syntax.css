@@ -1,0 +1,117 @@
+/* syntax */
+
+/* <pre>, <code>:shared */
+pre, code {
+  @apply font-mono;
+  @apply font-normal;
+
+  direction: ltr;
+  hyphens: none;
+  tab-size: 2;
+  text-align: left;
+  letter-spacing: normal;
+  word-break: normal;
+  word-spacing: normal;
+}
+
+/* <pre>:code-blocks */
+pre {
+  @apply text-sm;
+  @apply leading-normal;
+  @apply whitespace-pre;
+  @apply p-4;
+  @apply rounded-sm;
+
+  @apply overflow-auto;
+  @apply scrolling-touch;
+  @apply subpixel-antialiased;
+
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    @apply hidden;
+  }
+
+  /* theme: light */
+  @apply text-gray-700;
+  @apply bg-gray-100;
+}
+
+/* <code>:inline */
+:not(pre) > code {
+  @apply text-sm;
+  @apply px-1;
+  @apply align-text-bottom;
+  @apply whitespace-normal;
+  @apply rounded-sm;
+
+  /* theme: light */
+  @apply text-purple-600;
+  @apply bg-gray-100;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  @apply text-gray-500;
+}
+
+.token.punctuation {
+  @apply text-blue-400;
+}
+
+.token.namespace {
+  opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  @apply text-red-500;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  @apply text-yellow-600;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  @apply text-orange-500;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  @apply text-green-500;
+}
+
+.token.function,
+.token.class-name {
+  @apply text-blue-500;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  @apply text-pink-500;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
