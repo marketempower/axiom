@@ -6,7 +6,7 @@
 <link rel="preload" as="image" href="{{ $imgFeature }}">
 {{ end }}
 
-<title>{{ printf "%s : %s" .Title .Site.Title }}</title>
+<title>{{ block "title" . }}{{ with .Title }}{{ . }} : {{ end }}{{ .Site.Title }}{{ end }}</title>
 
 {{- $subtitle := partial "subtitle" . }}
 {{- $description := partial "description" . }}
