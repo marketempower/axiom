@@ -2,14 +2,17 @@
   <div class="ax-inner">
     <div class="ax-logo">
       {{- $logo := printf `<span class="font-semibold text-raven-900">%s</span>` .Site.Title }}
-      {{- $logoParams := .Site.Params.logo }}
-      {{- with $logoParams.path }}
-        {{- if eq $logoParams.inline true }}
-          {{- $logoPath := printf "%s%s" "/static/" (trim $logoParams.path "/") -}}
-          {{- $logo = (trim (readFile $logoPath) "\n") }}
-        {{- else }}
-          {{- $logoSrc := partial "cdn-src" (dict "Site" $.Site "Page" . "src" $logoParams.path) }}
-          {{- $logo = printf `<img src="%s" alt="%s">` $logoSrc $.Site.Title }}
+      {{- if (and (reflect.IsMap .Site.Params.logo) (isset .Site.Params.logo "path") (isset .Site.Params.logo "inline")) }}
+        {{- $logoPath := .Site.Params.logo.path -}}
+        {{- $logoInline := .Site.Params.logo.inline -}}
+        {{- with $logoPath }}
+          {{- if eq $logoInline true }}
+            {{- $logoPath := printf "%s%s" "/static/" (trim $logoPath "/") -}}
+            {{- $logo = (trim (readFile $logoPath) "\n") }}
+          {{- else }}
+            {{- $logoSrc := partial "cdn-src" (dict "Site" $.Site "Page" . "src" $logoPath) }}
+            {{- $logo = printf `<img src="%s" alt="%s">` $logoSrc $.Site.Title }}
+          {{- end }}
         {{- end }}
       {{- end }}
       <a class="block" href="{{ "/" | relLangURL }}" title="{{ .Site.Title }}">{{- $logo | safeHTML -}}</a>
