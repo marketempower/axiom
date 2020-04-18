@@ -1,4 +1,6 @@
-{{- $data := (dict "default" (dict "name" "Unknown" "uri" "#" "email" "#" "twitter" "#" "image" "#")) -}}
+{{- $image := partial "svg/avatar.svg" (dict) | base64Encode -}}
+{{- $image = printf "%s%s" "data:image/svg+xml;base64," $image | safeURL -}}
+{{- $data := (dict "default" (dict "name" "Unknown" "uri" "#" "email" "#" "twitter" "#" "image" $image)) -}}
 {{- with .Site.Data.author }}
 {{- $data = . -}}
 {{- end }}
@@ -7,4 +9,8 @@
 {{- $author = index $data . -}}
 {{- end }}
 {{- $author = $author | default $data.default -}}
+{{- if not (eq (substr $author.image 0 10) "data:image") }}
+{{- $image = partial "cdn-src" (dict "Site" $.Site "Page" . "src" $author.image) -}}
+{{- $author = merge $author (dict "image" $image) -}}
+{{- end }}
 {{- return $author }}
