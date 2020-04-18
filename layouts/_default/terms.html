@@ -2,7 +2,7 @@
 <div class="default-terms">
   <div class="ax-content">
     <div class="ax-inner">
-      <h1 class="title-section">{{ .Title | humanize }}</h1>
+      <h1 class="section-title">{{ .Title | humanize }}</h1>
 
       <div class="mt-8">
         {{ partial "term-cloud" (dict "Site" $.Site "Page" . "term" .Type "count" true) }}

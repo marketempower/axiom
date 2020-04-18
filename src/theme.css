@@ -21,7 +21,7 @@
 .default-terms,
 .default-taxonomy,
 .default-section,
-.posts-single {
+.page-single {
   & > .ax-header,
   & > .ax-feature,
   & > .ax-content {
@@ -60,7 +60,7 @@
   .default-terms,
   .default-taxonomy,
   .default-section,
-  .posts-single {
+  .page-single {
     & > .ax-header,
     & > .ax-feature,
     & > .ax-content {
@@ -81,15 +81,15 @@
 
 /* <h1>:main-headline, title */
 /* ff: title, fs: 40px (2.5rem), fw: 400, lh: 48px (1.2), ls: normal */
-h1.title-page, h1.title-post {
+h1.page-title, h1.post-title {
   @apply font-content-title text-4xlp font-normal leading-tight tracking-default;
 }
 
-h1.title-section {
+h1.section-title {
   @apply uppercase tracking-wide text-2xl text-raven-800 font-semibold;
 }
 
-p.subtitle-post {
+p.post-subtitle {
   @apply text-2xl font-content-sans font-light text-raven-500 mt-3;
 }
 
