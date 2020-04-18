@@ -1,0 +1,15 @@
+{{- $limit := .limit | default 7 -}}
+{{- $sections := "" -}}
+{{- with .sections }}
+{{- $sections = split . "," -}}
+{{- end }}
+{{- $sections = $sections | default $.Site.Params.mainSections | default (slice "post" "posts") -}}
+{{- $class := .class | default "mt-8" -}}
+{{- $style := .style -}}
+
+{{- $pages := first $limit (where $.Site.RegularPages "Type" "in" $sections) -}}
+{{- range $pages }}
+<div class="{{ $class }}"{{ with $style }} style="{{ . | safeCSS }}"{{ end }}>
+  {{ .Render "summary" }}
+</div>
+{{- end }}

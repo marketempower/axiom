@@ -1,20 +1,16 @@
 {{- $limit := "" -}}
+{{- $sections := "" -}}
 {{- $class := "" -}}
 {{- $style := "" -}}
 {{- if .IsNamedParams }}
 {{- $limit = .Get "limit" -}}
+{{- $sections = .Get "sections" -}}
 {{- $class = .Get "class" -}}
 {{- $style = .Get "style" -}}
 {{- else }}
 {{- $limit = .Get 0 -}}
-{{- $class = .Get 1 -}}
-{{- $style = .Get 2 -}}
+{{- $sections = .Get 1 -}}
+{{- $class = .Get 2 -}}
+{{- $style = .Get 3 -}}
 {{- end }}
-{{- $limit = $limit | default 7 -}}
-{{- $class = $class | default "mt-8" -}}
-{{- $pages := first $limit (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) -}}
-{{- range $pages}}
-<div class="{{ $class }}"{{ with $style }} style="{{ . | safeCSS }}"{{ end }}>
-  {{ .Render "summary" }}
-</div>
-{{- end }}
+{{- partial "recent-pages" (dict "Site" $.Site "Page" . "limit" $limit "sections" $sections "class" $class "style" $style) -}}
