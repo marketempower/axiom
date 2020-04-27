@@ -4,14 +4,14 @@ body {
   @apply antialiased;
 }
 
-/* Pretty ups */
+/* pretty ups */
 a,
 button,
 input {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Vue.js v-cloak hide element until loaded */
-[v-cloak] {
+/* alpine.js, vue.js */
+[x-cloak], [v-cloak] {
   @apply hidden;
 }
