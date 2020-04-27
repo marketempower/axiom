@@ -14,7 +14,7 @@ To learn more, see the Quick Start, Documentation, and Live Example resources be
   - [Axiom Theme](https://github.com/marketempower/axiom)
   - [Axiom Example](https://github.com/marketempower/axiom-example)
 
-![Axiom](https://github.com/marketempower/axiom/raw/master/images/screenshot.png)
+![Axiom Screenshot](https://github.com/marketempower/axiom/raw/master/images/example.png)
 
 # License
 
