@@ -2,9 +2,11 @@
 {{- with .Content }}
 {{ . }}
 {{- else }}
-<div class="section flex justify-center">
-  <div class="section-inner flex-grow min-w-0 max-w-2xlp mx-4 md:mx-8">
-    {{ partial "recent-pages" (dict "Site" $.Site "Page" .) }}
+<div class="default-single">
+  <div class="ax-content">
+    <div class="ax-inner">
+      {{ partial "recent-pages" (dict "Site" $.Site "Page" .) }}
+    </div>
   </div>
 </div>
 {{- end }}

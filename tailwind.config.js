@@ -3,6 +3,9 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   theme: {
     extend: {
+      borderWidth: {
+        '3': '3px',
+      },
       boxShadow: {
         'b': '0 4px 12px 0 rgba(0, 0, 0, 0.05)',
       },
@@ -28,10 +31,11 @@ module.exports = {
         'content-title': ['font-content-title', ...defaultTheme.fontFamily.serif],
       },
       fontSize: {
-        '2xs': '0.8125rem', // 13px
-        '2sm': '0.9375rem', // 15px
-        '2xlp': '1.625rem', // 26px
-        '4xlp': '2.5rem', // 40px
+        '13': '0.8125rem', // 13px
+        '15': '0.9375rem', // 15px
+        '21': '1.3125rem', // 21px
+        '26': '1.625rem', // 26px
+        '40': '2.5rem', // 40px
       },
       letterSpacing: {
         'default': 'normal',
@@ -41,7 +45,7 @@ module.exports = {
         'tightly': '1.15', //  18.4
       },
       maxWidth: {
-        '2xlp': '42.5rem', // 680
+        '680': '42.5rem', // 680
       },
       spacing: {
         '05': '0.1875rem', // 3px

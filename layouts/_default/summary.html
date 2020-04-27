@@ -10,10 +10,10 @@
   </div>
   {{- end }}
   <div class="summary-content font-content-sans">
-    <a class="summary-title block text-2xlp sm:text-2xl leading-tightly tracking-tightly font-semibold text-raven-800 hover:text-raven-900" href="{{ .RelPermalink }}">{{ .Title }}</a>
+    <a class="summary-title block text-26 sm:text-2xl leading-tightly tracking-tightly font-semibold text-raven-800 hover:text-raven-900" href="{{ .RelPermalink }}">{{ .Title }}</a>
     <a class="summary-excerpt mt-2 block text-xl sm:text-base leading-tight tracking-normal font-normal text-raven-500 hover:text-raven-600" href="{{ .RelPermalink }}">
       {{- partial "subtitle" . | truncate 125 " ..." -}}
     </a>
-    <aside class="summary-meta mt-6 text-2sm leading-snug tracking-normal font-normal text-raven-500"><time datetime="{{ dateFormat "2006-01-02T15:04:05Z" .Date.UTC | safeHTML }}">{{ dateFormat $dateFormat .Date.Local }}</time></aside>
+    <aside class="summary-meta mt-6 text-15 leading-snug tracking-normal font-normal text-raven-500"><time datetime="{{ dateFormat "2006-01-02T15:04:05Z" .Date.UTC | safeHTML }}">{{ dateFormat $dateFormat .Date.Local }}</time></aside>
   </div>
 </div>
