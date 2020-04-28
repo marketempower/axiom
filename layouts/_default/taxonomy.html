@@ -2,8 +2,8 @@
 {{- $taxonomy := .Data.Singular -}}
 {{- $title := printf "%s%s %s" (T $taxonomy | default  (humanize $taxonomy)) ":" .Title -}}
 <div class="default-taxonomy">
-  <div class="ax-content">
-    <div class="ax-inner">
+  <div class="ax-content ax-l-o">
+    <div class="ax-l-i">
       <h1 class="section-title">{{ $title | safeHTML }}</h1>
 
       {{- range .Paginator.Pages }}

@@ -1,8 +1,8 @@
 {{ define "main" }}
 {{ $title := .Title | default (T .Section .) | default .Section | humanize -}}
 <div class="default-section section-{{ .Section }}">
-  <div class="ax-content">
-    <div class="ax-inner">
+  <div class="ax-content ax-l-o">
+    <div class="ax-l-i">
       <h1 class="section-title">{{- $title -}}</h1>
 
       {{- with .Content }}
