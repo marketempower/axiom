@@ -2,8 +2,7 @@
 
 /* <pre>, <code>:shared */
 pre, code {
-  @apply font-mono;
-  @apply font-normal;
+  @apply font-mono font-normal;
 
   direction: ltr;
   hyphens: none;
@@ -16,15 +15,8 @@ pre, code {
 
 /* <pre>:code-blocks */
 pre {
-  @apply text-sm;
-  @apply leading-normal;
-  @apply whitespace-pre;
-  @apply p-4;
-  @apply rounded-sm;
-
-  @apply overflow-auto;
-  @apply scrolling-touch;
-  @apply subpixel-antialiased;
+  @apply text-sm leading-normal whitespace-pre p-4 rounded-sm;
+  @apply overflow-auto scrolling-touch subpixel-antialiased;
 
   scrollbar-width: none;
   &::-webkit-scrollbar {
@@ -32,21 +24,15 @@ pre {
   }
 
   /* theme: light */
-  @apply text-gray-700;
-  @apply bg-gray-100;
+  @apply text-gray-700 bg-gray-100;
 }
 
 /* <code>:inline */
 :not(pre) > code {
-  @apply text-sm;
-  @apply px-1;
-  @apply align-text-bottom;
-  @apply whitespace-normal;
-  @apply rounded-sm;
+  @apply text-sm px-1 align-text-bottom whitespace-normal rounded-sm;
 
   /* theme: light */
-  @apply text-purple-600;
-  @apply bg-gray-100;
+  @apply text-purple-600 bg-gray-100;
 }
 
 .token.comment,

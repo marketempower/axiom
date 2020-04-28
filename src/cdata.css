@@ -28,22 +28,20 @@
   & > h4,
   & > h5,
   & > h6 {
-    @apply font-content-sans;
-    @apply font-semibold;
-    @apply tracking-tight;
+    @apply font-content-sans font-semibold tracking-tight;
   }
 
   /* <h1>:typography */
   /* fs: 34px (2.125rem), lh: 38px (1.117647) */
   & > h1 {
-    font-size: 2.125rem;
+    @apply text-34;
     line-height: 1.117647;
   }
 
   /* <hx>:typography */
   /* fs: 26px (1.625rem), lh: 30px (1.153845) */
   & > h2 {
-    font-size: 1.625rem;
+    @apply text-26;
     line-height: 1.153845;
   }
 
@@ -51,8 +49,7 @@
   & > h4,
   & > h5,
   & > h6 {
-    @apply text-2xl;
-    @apply leading-tightly;
+    @apply text-2xl leading-tightly;
   }
 
   /* <p>, <ul>, <ol>, <blockquote p>:typography */
@@ -61,9 +58,7 @@
   & > ul,
   & > ol,
   & > blockquote p {
-    @apply font-content-serif;
-    font-size: 1.3125rem;
-    @apply font-normal;
+    @apply font-content-serif text-21 font-normal;
     line-height: 1.57143;
     letter-spacing: -0.004em;
   }
@@ -179,8 +174,7 @@
   & > ul li a:visited,
   & > .footnotes a:active,
   & > .footnotes a:link,
-  & > .footnotes a:visited
-  {
+  & > .footnotes a:visited {
     @apply text-blue-600;
   }
 
@@ -204,13 +198,10 @@
    4 shortcode: same as previous but text input only
    */
   & > blockquote {
-    @apply pl-5;
-    @apply border-l-4;
-    @apply border-raven-300;
+    @apply pl-5 border-l-4 border-raven-300;
 
     /* <blockquote footer, cite, or dash> */
-    @apply text-base;
-    @apply text-raven-500;
+    @apply text-base text-raven-500;
   }
 
   /* <blockquote p> */
@@ -274,11 +265,9 @@
 
   /* footnotes */
   & .footnotes {
-    @apply text-sm;
-    @apply text-raven-500;
+    @apply text-sm text-raven-500;
     & > hr {
-      @apply mt-6;
-      @apply mb-2;
+      @apply mt-6 mb-2;
     }
     & .footnote-backref {
       visibility: hidden;

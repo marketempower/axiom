@@ -6,8 +6,8 @@
 @import "tailwindcss/utilities";
 
 /* purgecss start ignore */
-@import "./global";
-@import "./theme";
-@import "./cdata";
-@import "./syntax";
+@import "global";
+@import "theme";
+@import "cdata";
+@import "syntax";
 /* purgecss end ignore */
