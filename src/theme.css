@@ -1,4 +1,5 @@
 /* theme */
+/* see end for @screen sm */
 /* logo */
 .ax-logo {
   & img,
@@ -7,75 +8,39 @@
   }
 }
 
-@screen sm {
-  .ax-logo {
-    & img,
-    & svg {
-      @apply h-9;
-    }
-  }
+/* layout outer */
+.ax-l-o {
+  @apply flex justify-center;
 }
 
-/* layouts */
-.default-single,
-.default-terms,
-.default-taxonomy,
-.default-section,
-.page-single {
-  & > .ax-header,
-  & > .ax-feature,
-  & > .ax-content {
-    @apply flex justify-center;
-    & > .ax-inner {
-      @apply flex-grow min-w-0 max-w-680 mx-4 mt-8;
-    }
-  }
-  & > .ax-feature > .ax-inner {
-    @apply max-w-5xl;
-  }
+/* layout inner, gutter = mx-4 */
+.ax-l-i {
+  @apply flex-grow min-w-0 max-w-680 mx-4 mt-8;
+}
+
+.ax-feature > .ax-l-i {
+  @apply max-w-5xl;
 }
 
 .header {
   @apply relative shadow-b bg-white py-3 flex justify-center;
-  & > .ax-inner {
-    @apply flex flex-grow items-center min-w-0 max-w-6xl mx-4;
-    & > .ax-logo {
-      @apply flex-1;
-    }
-    & > .ax-user {
-      @apply flex items-center ml-auto;
-    }
+  & > .ax-l-i {
+    @apply flex items-center max-w-6xl mt-0;
+  }
+
+  & .ax-logo {
+    @apply flex-1;
+  }
+
+  & .ax-user {
+    @apply flex items-center ml-auto;
   }
 }
 
 .footer {
   @apply flex justify-center border-t border-gray-200 bg-white mt-8 py-6;
-  & > .ax-inner {
-    @apply flex-grow min-w-0 max-w-6xl mx-4;
-  }
-}
-
-@screen sm {
-  .default-single,
-  .default-terms,
-  .default-taxonomy,
-  .default-section,
-  .page-single {
-    & > .ax-header,
-    & > .ax-feature,
-    & > .ax-content {
-      & > .ax-inner {
-        @apply mx-8;
-      }
-    }
-  }
-
-  .header > .ax-inner {
-    @apply mx-8;
-  }
-
-  .footer > .ax-inner {
-    @apply mx-8;
+  & > .ax-l-i {
+    @apply max-w-6xl mt-0;
   }
 }
 
@@ -98,4 +63,18 @@ p.post-subtitle {
   @apply h-px;
   background-image: linear-gradient(to left, rgba(0,0,0,0), rgba(0,0,0,0.24), rgba(0,0,0,0));
   border: 0;
+}
+
+@screen sm {
+  .ax-logo {
+    & img,
+    & svg {
+      @apply h-9;
+    }
+  }
+
+  /* layout inner gutter */
+  .ax-l-i {
+    @apply mx-8;
+  }
 }
