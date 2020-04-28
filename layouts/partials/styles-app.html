@@ -1,6 +1,10 @@
 {{- $appCSS := resources.Get "app.css" }}
-{{- $customCSS := resources.Get "custom.css" | resources.Minify }}
-{{- $bundleCSS := slice $appCSS $customCSS | resources.Concat "bundle.css" }}
+{{- $customCSS := resources.Get "custom.css" }}
+{{- $slice := slice $appCSS }}
+{{- if $customCSS }}
+{{- $slice = $slice | append ($customCSS | resources.Minify) }}
+{{- end }}
+{{- $bundleCSS := $slice | resources.Concat "bundle.css" }}
 {{- $bundleCSS = printf "%s?v=%d" $bundleCSS.RelPermalink now.Unix }}
 <link rel="preload" as="style" href="{{ $bundleCSS | safeHTML }}" media="all">
 <link rel="stylesheet" href="{{ $bundleCSS | safeHTML }}" media="all">
