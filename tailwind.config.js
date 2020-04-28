@@ -26,9 +26,9 @@ module.exports = {
         },
       },
       fontFamily: {
-        'content-serif': ['font-content-serif', ...defaultTheme.fontFamily.serif],
-        'content-sans': ['font-content-sans', ...defaultTheme.fontFamily.sans],
-        'content-title': ['font-content-title', ...defaultTheme.fontFamily.serif],
+        'content-sans': ['content-sans'], /* default already on <html> */
+        'content-serif': ['content-serif', ...defaultTheme.fontFamily.serif],
+        'content-title': ['content-title', ...defaultTheme.fontFamily.serif],
       },
       fontSize: {
         '13': '0.8125rem', // 13px

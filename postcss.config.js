@@ -12,7 +12,7 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
     const innerMatches = content.match(/[^<>"'`\s.()]*[^<>"'`\s.():]/g) || []
     return broadMatches.concat(innerMatches)
   },
-  whitelist: [],
+  whitelist: ['font-content-sans', 'font-content-serif', 'font-content-title'],
 })
 
 module.exports = {
