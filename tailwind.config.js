@@ -35,6 +35,7 @@ module.exports = {
         '15': '0.9375rem', // 15px
         '21': '1.3125rem', // 21px
         '26': '1.625rem', // 26px
+        '34': '2.125rem', // 34px
         '40': '2.5rem', // 40px
       },
       letterSpacing: {
