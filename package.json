@@ -28,14 +28,10 @@
     "concat": "^1.0.3",
     "cssnano": "^4.1.10",
     "del-cli": "^3.0.0",
-    "postcss-cli": "^7.1.0",
+    "postcss-cli": "^7.1.1",
     "postcss-import": "^12.0.1",
     "postcss-nesting": "^7.0.1",
     "tailwindcss": "^1.3.5",
-    "terser": "^4.6.11"
-  },
-  "browserslist": [
-    "> 1%"
-  ],
-  "dependencies": {}
+    "terser": "^4.6.12"
+  }
 }
