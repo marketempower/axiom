@@ -8,7 +8,7 @@
     alt="{{ $author.name }}">
   </div>
   <div class="flex-shrink-0 ml-2 leading-tight font-content-sans">
-    <a class="block text-base text-raven-800 hover:text-raven-900 hover:underline focus:underline" target="_blank" rel="noopener nofollow" title="{{ $author.name }}" href="{{ $author.uri | absURL }}">{{ $author.name }}</a>
-    <time class="text-base text-raven-500" datetime="{{ dateFormat "2006-01-02T15:04:05Z" .Date.UTC | safeHTML }}">{{ dateFormat $dateFormat .Date.Local }}</time>
+    <a class="block text-13 text-raven-800 hover:text-raven-900 hover:underline focus:underline" target="_blank" rel="noopener nofollow" title="{{ $author.name }}" href="{{ $author.uri | absURL }}">{{ $author.name }}</a>
+    <time class="text-13 text-raven-500" datetime="{{ dateFormat "2006-01-02T15:04:05Z" .Date.UTC | safeHTML }}">{{ dateFormat $dateFormat .Date.Local }}</time>
   </div>
 </div>

@@ -44,19 +44,12 @@
   }
 }
 
+/* titles */
 /* <h1>:main-headline, title */
 /* ff: title, fs: 40px (2.5rem), fw: 400, lh: 48px (1.2), ls: normal */
-h1.page-title, h1.post-title {
-  @apply font-content-title text-40 font-normal leading-tight tracking-default;
-}
-
-h1.section-title {
-  @apply uppercase tracking-wide text-2xl text-raven-800 font-semibold;
-}
-
-p.post-subtitle {
-  @apply text-2xl font-content-sans font-light text-raven-500 mt-3;
-}
+h1.page-title, h1.post-title {}
+h1.section-title {}
+p.post-subtitle {}
 
 /* <hr> */
 .hr-fade {

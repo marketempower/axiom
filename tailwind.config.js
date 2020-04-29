@@ -26,7 +26,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        'content-sans': ['content-sans'], /* default already on <html> */
+        'content-sans': ['content-sans', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Geneva', 'Arial', 'sans-serif'],
         'content-serif': ['content-serif', ...defaultTheme.fontFamily.serif],
         'content-title': ['content-title', ...defaultTheme.fontFamily.serif],
       },

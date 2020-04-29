@@ -21,35 +21,30 @@
   }
 
   /* <hx>:typography */
-  /* ff: sans, fw: 600, ls: -0.025em (-0.65px, -0.85px) */
   & > h1,
   & > h2,
   & > h3,
   & > h4,
   & > h5,
   & > h6 {
-    @apply font-content-sans font-semibold tracking-tight;
+    @apply font-content-sans font-semibold leading-tightly tracking-tight;
   }
 
   /* <h1>:typography */
-  /* fs: 34px (2.125rem), lh: 38px (1.117647) */
   & > h1 {
     @apply text-34;
-    line-height: 1.117647;
   }
 
   /* <hx>:typography */
-  /* fs: 26px (1.625rem), lh: 30px (1.153845) */
   & > h2 {
     @apply text-26;
-    line-height: 1.153845;
   }
 
   & > h3,
   & > h4,
   & > h5,
   & > h6 {
-    @apply text-2xl leading-tightly;
+    @apply text-2xl;
   }
 
   /* <p>, <ul>, <ol>, <blockquote p>:typography */
@@ -58,7 +53,7 @@
   & > ul,
   & > ol,
   & > blockquote p {
-    @apply font-content-serif text-21 font-normal;
+    @apply font-content-serif font-normal text-21;
     line-height: 1.57143;
     letter-spacing: -0.004em;
   }
