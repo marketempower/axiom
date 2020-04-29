@@ -12,7 +12,7 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
     const innerMatches = content.match(/[^<>"'`\s.()]*[^<>"'`\s.():]/g) || []
     return broadMatches.concat(innerMatches)
   },
-  whitelist: ['font-content-sans', 'font-content-serif', 'font-content-title', 'text-13', 'text-21'],
+  whitelist: ['static', 'relative', 'absolute', 'block', 'hidden', 'inline-block', 'inline-block', 'inline', 'flex', 'flex-none', 'flex-grow', 'justify-center', 'table', 'text-left', 'text-center', 'text-right', 'text-justify', 'font-content-sans', 'font-content-serif', 'font-content-title', 'text-sm', 'text-base', 'text-lg', 'text-xl', 'text-2xl', 'text-40', 'lowercase', 'uppercase', 'tracking-default', 'align-text-bottom', 'font-sans', 'font-serif', 'font-mono', 'font-light', 'font-normal', 'font-medium', 'font-semibold', 'font-bold', 'leading-tight', 'mt-0', 'mt-1', 'mt-3', 'mt-4', 'mt-8', 'mx-4', 'mx-8', 'mr-3', 'max-w-680', 'max-w-2xl', 'min-w-0', 'w-auto', 'fill-current', 'text-gray-500', 'text-gray-600', 'text-raven-800', 'text-raven-900a', 'first:mt-0', 'sm:mt-0', 'sm:ml-8', 'sm:flex', 'sm:flex-grow', 'sm:justify-center', 'sm:max-w-680', 'sm:max-w-2xl'],
 })
 
 module.exports = {

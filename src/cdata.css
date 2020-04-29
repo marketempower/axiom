@@ -53,8 +53,8 @@
   & > ul,
   & > ol,
   & > blockquote p {
-    @apply font-content-serif font-normal text-21;
-    line-height: 1.57143;
+    @apply font-content-serif font-normal text-xl;
+    line-height: 1.6;
     letter-spacing: -0.004em;
   }
 
@@ -86,7 +86,8 @@
   }
 
   & > ul,
-  & > ol {
+  & > ol,
+  & li p {
     @apply mt-8;
   }
 
@@ -143,8 +144,8 @@
   & > ol ol,
   & li ul,
   & li ol,
-  & li p,
-  & > blockquote p {
+  & li p:first-child,
+  & > blockquote p:first-child {
     @apply mt-0;
   }
 
