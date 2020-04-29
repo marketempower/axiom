@@ -1,8 +1,0 @@
-{{- $subtitle := .Summary -}}
-{{- if .Params.subtitle }}
-  {{- $subtitle = .Params.subtitle -}}
-{{- else if .Description }}
-  {{- $subtitle = .Description -}}
-{{- end }}
-{{- $subtitle = (trim $subtitle "\n") | plainify -}}
-{{- return $subtitle -}}

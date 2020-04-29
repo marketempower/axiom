@@ -3,7 +3,7 @@ date = {{ dateFormat "2006-01-02T15:00:00Z" now.UTC }}
 lastmod = {{ dateFormat "2006-01-02T15:00:00Z" now.UTC }}
 author = "default"
 title = "{{ replace .TranslationBaseName "-" " " | title }}"
-subtitle = "25 words / 125 chars. Used in meta data, and content summaries."
+subtitle = "Suggested 25 words / 125 chars. Used in metadata, and content summaries."
 feature = "{{ .Site.Params.image.default }}"
 +++
 

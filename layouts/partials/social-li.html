@@ -4,5 +4,5 @@
 {{- $svg := printf "svg/%s.svg" $id -}}
 {{- $svg = partial $svg (dict "class" "fill-current") -}}
 {{- $class = $class | default "mx-3 w-6 h-6 text-raven-700 hover:text-raven-900" -}}
-<a class="block {{ $class }}" target="_blank" rel="noopener nofollow" title="{{ T $id }}" href="{{ $url }}">{{ (trim $svg "\n") | safeHTML }}</a>
+<a class="block {{ $class }}" target="_blank" rel="noopener nofollow" title="{{ T $id }}" href="{{ $url }}">{{ $svg | chomp | safeHTML }}</a>
 {{- end -}}

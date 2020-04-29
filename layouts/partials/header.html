@@ -8,7 +8,7 @@
         {{- with $logoPath }}
           {{- if eq $logoInline true }}
             {{- $logoPath := printf "%s%s" "/static/" (trim $logoPath "/") -}}
-            {{- $logo = (trim (readFile $logoPath) "\n") }}
+            {{- $logo = chomp (readFile $logoPath) }}
           {{- else }}
             {{- $logoSrc := partial "cdn-src" (dict "Site" $.Site "Page" . "src" $logoPath) }}
             {{- $logo = printf `<img src="%s" alt="%s">` $logoSrc $.Site.Title }}

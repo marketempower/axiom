@@ -8,8 +8,8 @@
 
 <title>{{ block "title" . }}{{ with .Title }}{{ . }} : {{ end }}{{ .Site.Title }}{{ end }}</title>
 
-{{- $subtitle := partial "subtitle" . }}
-{{- $description := partial "description" . }}
+{{- $subtitle := partial "meta-subtitle" . }}
+{{- $summary := partial "meta-summary" . }}
 {{- $author := partial "author-data" . }}
 
 <meta property="og:title" content="{{ .Title }}">
@@ -21,8 +21,8 @@
 <meta property="og:image:height" content="{{ .Site.Params.image.height }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:locale" content="{{ replace .Site.LanguageCode "-" "_" | default "en_US" }}">
-<meta property="og:description" content="{{ $description }}">
-<meta name="description" content="{{ $description }}">
+<meta property="og:description" content="{{ $summary | plainify }}">
+<meta name="description" content="{{ $summary | plainify }}">
 <meta property="og:updated_time" content="{{ dateFormat "2006-01-02T15:04:05Z" .Lastmod.UTC | safeHTML }}">
 <meta property="fb:app_id" content="{{ .Site.Params.services.facebookApp }}">
 <meta name="author" content="{{ $author.name }}">
@@ -38,14 +38,14 @@
   "@type": "Article",
   {{- end }}
   "headline": {{ .Title }},
-  "alternativeHeadline": {{ $subtitle }},
+  "alternativeHeadline": {{ $subtitle | plainify }},
   "url": {{ .Permalink }},
   "image": {{ $imgMeta | absURL }},
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": {{ .Permalink }}
   },
-  "description": {{ $description }},
+  "description": {{ $summary | plainify }},
   "author": {
     "@type": "Person",
     "name": {{ $author.name }}
@@ -60,6 +60,6 @@
   },
   "datePublished": {{ dateFormat "2006-01-02T15:04:05Z" .Date.UTC | safeHTML }},
   "dateModified": {{ dateFormat "2006-01-02T15:04:05Z" .Lastmod.UTC | safeHTML }},
-  "articleBody": {{ trim .Content "\n" }}
+  "articleBody": {{ chomp .Content }}
 }
 </script>

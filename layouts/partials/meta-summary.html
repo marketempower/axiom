@@ -1,0 +1,2 @@
+{{- $summary := .Description | default .Summary -}}
+{{- return chomp ($summary | replaceRE "\n" " " | markdownify) -}}

@@ -1,3 +1,0 @@
-{{- $description := .Description | default .Summary -}}
-{{- $description = (trim $description "\n") | plainify -}}
-{{- return $description -}}

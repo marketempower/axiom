@@ -6,7 +6,7 @@
 {{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ .Site.LanguageCode }}">
   <title>{{ .Site.Title }}</title>
-  <subtitle>{{ partial "subtitle" . }}</subtitle>
+  <subtitle>{{ partial "meta-subtitle" . | plainify }}</subtitle>
   <id>{{ "/" | absLangURL }}</id>
   <author>
     <name>{{ .Site.Title }}</name>
@@ -44,7 +44,7 @@
     {{ end }}
     <updated>{{ dateFormat "2006-01-02T15:04:05Z" .Lastmod.UTC | safeHTML }}</updated>
     <published>{{ dateFormat "2006-01-02T15:04:05Z" .Date.UTC | safeHTML }}</published>
-    <content type="html">{{ trim .Content "\n" }}</content>
+    <content type="html">{{ chomp .Content }}</content>
   </entry>
   {{- end }}
 </feed>
