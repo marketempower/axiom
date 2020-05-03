@@ -1,6 +1,15 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
+  target: ['relaxed', {
+    transform: 'ie11',
+    backgroundColor: 'ie11',
+    textColor: 'ie11',
+    borderColor: 'ie11',
+    placeholderColor: 'ie11',
+    divideColor: 'ie11',
+  }],
+  purge: false,
   theme: {
     extend: {
       borderWidth: {
