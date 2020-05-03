@@ -47,7 +47,7 @@ pre {
 }
 
 .token.namespace {
-  opacity: .7;
+  @apply text-gray-600;
 }
 
 .token.property,
