@@ -4,12 +4,18 @@
 {{- $src := .src | default "" }}
 {{- $resource := "" }}
 
-{{/* default: params.cdn.provider = local */}}
-{{- $resource = $src | relURL }}
+{{- $uri := urls.Parse $src }}
+{{- if $uri.Scheme }}
+  {{- $resource = $src | safeURL }}
+{{- else }}
 
-{{- if eq "cloudinary" $provider -}}
-  {{- $type = index .Site.Params.cloudinary $type }}
-  {{- $resource = printf "%s%s%s%s%s" .Site.Params.cloudinary.host $type $preset .Site.Params.cloudinary.version $src }}
+  {{/* default: params.cdn.provider = local */}}
+  {{- $resource = $src | relURL }}
+
+  {{- if eq "cloudinary" $provider }}
+    {{- $type = index .Site.Params.cloudinary $type }}
+    {{- $resource = printf "%s%s%s%s%s" .Site.Params.cloudinary.host $type $preset .Site.Params.cloudinary.version $src }}
+  {{- end }}
 {{- end -}}
 
 {{ return $resource }}
