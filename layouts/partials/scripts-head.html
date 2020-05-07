@@ -1,5 +1,7 @@
 {{- $bundleJS := printf "%s?v=%d" "bundle.js" now.Unix }}
 <link rel="preload" as="script" href="{{ $bundleJS | relURL | safeHTML }}">
+
+{{- if .Site.Params.services.analyticsId }}
 <link rel="preconnect" href="https://www.google-analytics.com">
 <link rel="preconnect" href="https://stats.g.doubleclick.net">
 <link rel="preconnect" href="https://www.googleadservices.com">
@@ -16,3 +18,4 @@
   gtag('config','{{ . }}');
   {{- end }}
 </script>
+{{- end }}
