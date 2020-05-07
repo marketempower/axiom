@@ -4,9 +4,11 @@
 <link rel="preconnect" href="https://stats.g.doubleclick.net">
 <link rel="preconnect" href="https://www.googleadservices.com">
 
+{{ if .Site.Params.services.analyticsId }}
 {{- $gtag := printf "%s%s" "https://www.googletagmanager.com/gtag/js?id=" .Site.Params.services.analyticsId }}
 <link rel="preload" as="script" href="{{ $gtag | safeHTML }}">
 <script src="{{ $gtag | safeHTML }}"></script>
+{{ end }}
 <script>
   window.dataLayer=window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
