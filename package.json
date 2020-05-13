@@ -13,7 +13,7 @@
     "css:type": "postcss ./src/type.css --verbose -o ./assets/type.css",
     "js": "npm run js:prism && npm run js:index && npm run js:app",
     "js:app": "concat -o ./assets/app.js ./src/alpine.min.js ./src/index.min.js",
-    "js:index": "terser ./src/index.js -c toplevel,sequences=false,drop_console=true -o ./src/index.min.js",
+    "js:index": "terser ./src/index.js -c sequences=false,drop_console=true -o ./src/index.min.js",
     "js:prism": "concat -o ./assets/prism.js ./src/prism.min.js",
     "dev": "NODE_ENV=development npm run css && npm run js",
     "prd": "NODE_ENV=production npm run css && npm run js",
@@ -30,7 +30,7 @@
     "postcss-cli": "^7.1.1",
     "postcss-import": "^12.0.1",
     "postcss-nesting": "^7.0.1",
-    "tailwindcss": "^1.4.5",
+    "tailwindcss": "^1.4.6",
     "terser": "^4.6.13"
   }
 }
