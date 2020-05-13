@@ -1,5 +1,5 @@
 {{- $appJS := resources.Get "app.js" }}
-{{- $customJS := resources.Get "custom.JS" }}
+{{- $customJS := resources.Get "custom.js" }}
 {{- $slice := slice $appJS }}
 {{- if $customJS }}
 {{- $slice = $slice | append ($customJS | resources.Minify) }}
