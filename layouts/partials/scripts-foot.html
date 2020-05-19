@@ -17,17 +17,16 @@
 {{- if eq $.Site.Params.services.adsenseLazy true }}
 <script>
 (function() {
-  window.setTimeout(function(){
+  window.setTimeout(function() {
     var gAds = document.createElement("script");
     gAds.setAttribute("defer", "defer");
-    gAds.setAttribute("data-ad-client", "{{ . }}");
     gAds.src = {{ $adsbygoogle }};
     document.body.appendChild(gAds);
   }, 2000);
 })();
 </script>
 {{- else }}
-<script data-ad-client="{{ . }}" async src="{{ $adsbygoogle }}"></script>
+<script async src="{{ $adsbygoogle }}"></script>
 {{- end }}
 {{- end }}
 
