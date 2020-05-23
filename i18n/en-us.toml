@@ -73,8 +73,5 @@ other = "Sorry, we can't find that page. Please visit the {{ .homeLink }} page. 
 [theme]
 other = "Axiom"
 
-[attribution]
-other = "Axiom"
-
 [poweredBy]
 other = "Powered by"

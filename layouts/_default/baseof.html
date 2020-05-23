@@ -8,6 +8,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
   <meta name="robots" content="noodp,noydir">
   <meta name="pinterest" content="nopin">
+  {{- if not (eq .Site.Params.omitThemeAttribution true) }}
+  <meta name="hugo-theme" content="{{ T "theme" | safeHTMLAttr }}">
+  {{- end }}
 
   <link rel="icon" type="image/png" sizes="32x32" href="{{ $imgFavIconAlt }}">
   <link rel="icon" type="image/x-icon" href="{{ $imgFavIconIco }}">
