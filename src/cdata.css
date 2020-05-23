@@ -1,26 +1,17 @@
 /* cdata */
-/* Markdown to html (style-less, class-less) CMS content */
-/* Specificity is exact match to prevent excess cascading */
+/*
+ * Targets bare HTML elements (w/o inline styles/classes)
+ * High specificity to prevent excess cascading
+*/
 
 .cdata {
-  /* <hx>, <p>, <ul>, <ol>:shared */
-  & > h1,
-  & > h2,
-  & > h3,
-  & > h4,
-  & > h5,
-  & > h6,
-  & > p,
-  & > ul,
-  & > ol {
-    @apply text-raven-900a;
+  @apply text-raven-900a;
 
-    /* Deal with long non-spaced strings that break layout */
-    word-break: break-word;
-    @apply break-words;
-  }
+  /* Deal with long non-spaced strings that break layout */
+  word-break: break-word;
+  @apply break-words;
 
-  /* <hx>:typography */
+  /* <hN>:typography */
   & > h1,
   & > h2,
   & > h3,
@@ -35,7 +26,7 @@
     @apply text-34;
   }
 
-  /* <hx>:typography */
+  /* <hN>:typography */
   & > h2 {
     @apply text-26;
   }
@@ -50,8 +41,8 @@
   /* <p>, <ul>, <ol>, <blockquote p>:typography */
   /* ff: serif, fs: 21px (1.3125rem), fw: 400, lh: 33px (1.57143), ls: -0.004em (-0.084px) */
   & > p,
-  & > ul,
   & > ol,
+  & > ul,
   & > blockquote p {
     @apply font-content-serif font-normal text-xl;
     line-height: 1.6;
@@ -59,126 +50,49 @@
   }
 
   /* margin-top */
-  & > *:first-child {
-    @apply mt-0;
-  }
-
-  & > h1 {
-    @apply mt-10;
-  }
-
-  /* included: div, iframe (embedded shortcodes) */
-  & > h2,
-  & > h3,
-  & > h4,
-  & > h5,
-  & > h6,
-  & > p,
-  & > blockquote,
-  & > figure,
-  & > table,
-  & > hr,
-  & > div,
-  & > nav,
-  & > aside,
-  & > iframe {
+  & > * + *,
+  & li > p + p {
     @apply mt-9;
   }
 
-  & > ul,
-  & > ol,
-  & li p {
-    @apply mt-8;
-  }
-
-  & > pre {
-    @apply mt-10;
-  }
-
-  /* margin-top:stacked */
-  /* excluded: blockquote, table, div, iframe (need extra space) */
-  & > h1 + h1,
-  & > h1 + h2,
-  & > h1 + h3,
-  & > h1 + h4,
-  & > h1 + h5,
-  & > h1 + h6,
-  & > h1 + p,
-  & > h1 + ul,
-  & > h1 + ol,
-  & > h2 + h2,
-  & > h2 + h3,
-  & > h2 + h4,
-  & > h2 + h5,
-  & > h2 + h6,
-  & > h2 + p,
-  & > h2 + ul,
-  & > h2 + ol,
-  & > h3 + h3,
-  & > h3 + h4,
-  & > h3 + h5,
-  & > h3 + h6,
-  & > h3 + p,
-  & > h3 + ul,
-  & > h3 + ol,
-  & > h4 + h4,
-  & > h4 + h5,
-  & > h4 + h6,
-  & > h4 + p,
-  & > h4 + ul,
-  & > h4 + ol,
-  & > h5 + h5,
-  & > h5 + h6,
-  & > h5 + p,
-  & > h5 + ul,
-  & > h5 + ol,
-  & > h6 + h6,
-  & > h6 + p,
-  & > h6 + ul,
-  & > h6 + ol {
+  /* <hN> margin-top:stacked */
+  & > h1 + *,
+  & > h2 + *,
+  & > h3 + *,
+  & > h4 + *,
+  & > h5 + *,
+  & > h6 + * {
     @apply mt-3;
   }
 
-  /* margin-top:nested */
-  & > ul ul,
-  & > ol ol,
-  & li ul,
-  & li ol,
-  & li p:first-child,
-  & > blockquote p:first-child {
-    @apply mt-0;
+  /* extra margin */
+  & > * + h1 {
+    @apply mt-10;
   }
 
-  /* <a>:link, active, visited */
-  & > a:active,
-  & > a:link,
-  & > a:visited,
-  & > blockquote a:active,
-  & > blockquote a:link,
-  & > blockquote a:visited,
-  & > figure figcaption a:active,
-  & > figure figcaption a:link,
-  & > figure figcaption a:visited,
-  & > ol li a:active,
-  & > ol li a:link,
-  & > ol li a:visited,
-  & > p a:active,
+  /* <a>:link:visited */
+  & > a:not([role=button]):link,
+  & > a:not([role=button]):visited,
   & > p a:link,
   & > p a:visited,
-  & > ul li a:active,
+  & > ol li a:link,
+  & > ol li a:visited,
   & > ul li a:link,
   & > ul li a:visited,
-  & > .footnotes a:active,
+  & > blockquote a:link,
+  & > blockquote a:visited,
+  & > figure figcaption a:link,
+  & > figure figcaption a:visited,
   & > .footnotes a:link,
   & > .footnotes a:visited {
     @apply text-blue-600;
   }
 
-  /* <a>:hover */
-  & > a:hover,
+  /* <a>:hover:active */
+  & > a:not([role=button]):hover,
   & > p a:hover,
-  & > ul li a:hover,
   & > ol li a:hover,
+  & > ul li a:hover,
   & > blockquote a:hover,
   & > figure figcaption a:hover,
   & > .footnotes a:hover {
@@ -259,7 +173,55 @@
     }
   }
 
-  /* footnotes */
+  /* <pre>, .highlight */
+  & > pre,
+  & > pre + *,
+  & > .highlight > pre,
+  & > .highlight > pre + * {
+    @apply mt-10;
+  }
+
+  /* <code>:block */
+  & > pre > code,
+  & > .highlight > pre > code {
+    @apply block whitespace-pre p-4 rounded;
+    @apply overflow-auto scrolling-touch subpixel-antialiased;
+
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      @apply hidden;
+    }
+  }
+
+  /* <code>:shared */
+  & code {
+    @apply font-mono font-normal text-sm;
+
+    direction: ltr;
+    hyphens: none;
+    tab-size: 2;
+    text-align: left;
+    letter-spacing: normal;
+    word-break: normal;
+    word-spacing: normal;
+  }
+
+  /* <code>:inline */
+  & :not(pre) > code {
+    @apply px-1 align-text-bottom whitespace-normal rounded-sm;
+  }
+
+  /* line numbers */
+  & > .highlight .ln {
+    @apply mr-4;
+  }
+
+  /* hightlight line */
+  & > .highlight .hl {
+    @apply block w-full;
+  }
+
+  /* hugo footnotes */
   & .footnotes {
     @apply text-sm text-raven-500;
     & > hr {
@@ -273,5 +235,4 @@
       }
     }
   }
-  /* end */
 }

@@ -8,10 +8,6 @@
 {{- $bundleJS = printf "%s?v=%d" $bundleJS.RelPermalink now.Unix }}
 <script src="{{ $bundleJS | safeHTML }}"></script>
 
-{{- with resources.Get "prism.js" }}
-<script defer src="{{ printf "%s?v=%d" .RelPermalink now.Unix | safeHTML }}"></script>
-{{- end }}
-
 {{- with .Site.Params.services.adsenseId }}
 {{- $adsbygoogle := "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" -}}
 {{- if eq $.Site.Params.services.adsenseLazy true }}

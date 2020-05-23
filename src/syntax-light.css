@@ -1,0 +1,95 @@
+.cdata {
+  /* <code>:blocks */
+  & > pre > code,
+  & > .highlight > pre > code {
+    @apply text-gray-700 bg-gray-100;
+  }
+
+  /* <code>:inline */
+  & :not(pre) > code {
+    @apply text-purple-600 bg-gray-100;
+  }
+}
+
+/* Background */ .chroma {}
+/* Other */ .chroma .x {}
+/* Error */ .chroma .err { @apply text-red-800 bg-red-200 }
+/* LineTableTD */ .chroma .lntd {}
+/* LineTable */ .chroma .lntable {}
+/* LineHighlight */ .chroma .hl { @apply bg-yellow-200 }
+/* LineNumbersTable */ .chroma .lnt {}
+/* LineNumbers */ .chroma .ln { @apply text-gray-500 }
+/* Keyword */ .chroma .k { @apply text-blue-500 }
+/* KeywordConstant */ .chroma .kc { @apply text-blue-500 }
+/* KeywordDeclaration */ .chroma .kd { @apply text-blue-500 }
+/* KeywordNamespace */ .chroma .kn { @apply text-blue-500 }
+/* KeywordPseudo */ .chroma .kp { @apply text-blue-500 }
+/* KeywordReserved */ .chroma .kr { @apply text-blue-500 }
+/* KeywordType */ .chroma .kt { @apply text-purple-500 }
+/* Name */ .chroma .n {}
+/* NameAttribute */ .chroma .na { @apply text-yellow-600 }
+/* NameBuiltin */ .chroma .nb { @apply text-orange-500 }
+/* NameBuiltinPseudo */ .chroma .bp {}
+/* NameClass */ .chroma .nc { @apply text-red-500 }
+/* NameConstant */ .chroma .no { @apply text-green-500 }
+/* NameDecorator */ .chroma .nd { @apply text-red-500 }
+/* NameEntity */ .chroma .ni {}
+/* NameException */ .chroma .ne { @apply text-red-500 }
+/* NameFunction */ .chroma .nf { @apply text-orange-500 }
+/* NameFunctionMagic */ .chroma .fm {}
+/* NameLabel */ .chroma .nl {}
+/* NameNamespace */ .chroma .nn {}
+/* NameOther */ .chroma .nx {}
+/* NameProperty */ .chroma .py {}
+/* NameTag */ .chroma .nt { @apply text-red-500 }
+/* NameVariable */ .chroma .nv {}
+/* NameVariableClass */ .chroma .vc {}
+/* NameVariableGlobal */ .chroma .vg {}
+/* NameVariableInstance */ .chroma .vi {}
+/* NameVariableMagic */ .chroma .vm {}
+/* Literal */ .chroma .l { @apply text-purple-500 }
+/* LiteralDate */ .chroma .ld { @apply text-green-500 }
+/* LiteralString */ .chroma .s { @apply text-green-500 }
+/* LiteralStringAffix */ .chroma .sa { @apply text-green-500 }
+/* LiteralStringBacktick */ .chroma .sb { @apply text-green-500 }
+/* LiteralStringChar */ .chroma .sc { @apply text-green-500 }
+/* LiteralStringDelimiter */ .chroma .dl { @apply text-green-500 }
+/* LiteralStringDoc */ .chroma .sd { @apply text-green-500 }
+/* LiteralStringDouble */ .chroma .s2 { @apply text-green-500 }
+/* LiteralStringEscape */ .chroma .se { @apply text-gray-500 }
+/* LiteralStringHeredoc */ .chroma .sh { @apply text-green-500 }
+/* LiteralStringInterpol */ .chroma .si { @apply text-green-500 }
+/* LiteralStringOther */ .chroma .sx { @apply text-green-500 }
+/* LiteralStringRegex */ .chroma .sr { @apply text-green-500 }
+/* LiteralStringSingle */ .chroma .s1 { @apply text-green-500 }
+/* LiteralStringSymbol */ .chroma .ss { @apply text-green-500 }
+/* LiteralNumber */ .chroma .m { @apply text-purple-500 }
+/* LiteralNumberBin */ .chroma .mb { @apply text-purple-500 }
+/* LiteralNumberFloat */ .chroma .mf { @apply text-purple-500 }
+/* LiteralNumberHex */ .chroma .mh { @apply text-purple-500 }
+/* LiteralNumberInteger */ .chroma .mi { @apply text-purple-500 }
+/* LiteralNumberIntegerLong */ .chroma .il { @apply text-purple-500 }
+/* LiteralNumberOct */ .chroma .mo { @apply text-purple-500 }
+/* Operator */ .chroma .o { @apply text-blue-400 }
+/* OperatorWord */ .chroma .ow { @apply text-blue-400 }
+/* Punctuation */ .chroma .p { @apply text-gray-600 }
+/* Comment */ .chroma .c { @apply text-gray-500 }
+/* CommentHashbang */ .chroma .ch { @apply text-gray-500 }
+/* CommentMultiline */ .chroma .cm { @apply text-gray-500 }
+/* CommentSingle */ .chroma .c1 { @apply text-gray-500 }
+/* CommentSpecial */ .chroma .cs { @apply text-gray-500 }
+/* CommentPreproc */ .chroma .cp { @apply text-gray-500 }
+/* CommentPreprocFile */ .chroma .cpf { @apply text-gray-500 }
+/* Generic */ .chroma .g {}
+/* GenericDeleted */ .chroma .gd {}
+/* GenericEmph */ .chroma .ge { @apply italic }
+/* GenericError */ .chroma .gr {}
+/* GenericHeading */ .chroma .gh {}
+/* GenericInserted */ .chroma .gi {}
+/* GenericOutput */ .chroma .go {}
+/* GenericPrompt */ .chroma .gp {}
+/* GenericStrong */ .chroma .gs { @apply font-bold }
+/* GenericSubheading */ .chroma .gu {}
+/* GenericTraceback */ .chroma .gt {}
+/* GenericUnderline */ .chroma .gl {}
+/* TextWhitespace */ .chroma .w {}
