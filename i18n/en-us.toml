@@ -16,6 +16,9 @@ other = "Tag"
 [category]
 other = "Category"
 
+[search]
+other = "Search"
+
 [info]
 other = "Info"
 

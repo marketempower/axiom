@@ -18,7 +18,7 @@
       <a class="block" href="{{ "/" | relLangURL }}" title="{{ .Site.Title }}">{{- $logo | safeHTML -}}</a>
     </div>
     <div class="ax-user">
-      <a class="p-2 w-7 h-7 block text-raven-500 hover:text-gray-800 focus:text-gray-800 focus:outline-none" target="_blank" rel="noopener nofollow" href="https://www.google.com/search?q=site:{{ .Site.Params.brand.domain | default .Site.BaseURL }}">
+      <a class="p-2 w-7 h-7 block text-raven-500 hover:text-gray-800 focus:text-gray-800 focus:outline-none" target="_blank" rel="noopener nofollow" href="https://www.google.com/search?q=site:{{ .Site.Params.brand.domain | default .Site.BaseURL }}" title="{{ (T "search" .) }}">
         {{ partial "svg/search.svg" (dict "class" "fill-current") }}
       </a>
       {{- $currentPage := . }}
