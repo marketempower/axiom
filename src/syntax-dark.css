@@ -1,7 +1,7 @@
 .cdata {
   /* <pre>:blocks */
-  & > pre > code,
-  & > .highlight > pre > code {
+  & > pre,
+  & > .highlight > pre {
     @apply text-gray-200 bg-gray-800;
   }
 

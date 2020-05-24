@@ -173,17 +173,16 @@
     }
   }
 
-  /* <pre>, .highlight */
+  /* <pre>:block */
   & > pre,
   & > pre + *,
-  & > .highlight > pre,
-  & > .highlight > pre + * {
+  & > .highlight,
+  & > .highlight + * {
     @apply mt-10;
   }
 
-  /* <code>:block */
-  & > pre > code,
-  & > .highlight > pre > code {
+  & > pre,
+  & > .highlight > pre {
     @apply block whitespace-pre p-4 rounded;
     @apply overflow-auto scrolling-touch subpixel-antialiased;
 
@@ -193,8 +192,10 @@
     }
   }
 
-  /* <code>:shared */
-  & code {
+  /* <pre>, <code>:shared */
+  & > pre,
+  & > .highlight > pre,
+  & :not(pre) > code {
     @apply font-mono font-normal text-sm;
 
     direction: ltr;
