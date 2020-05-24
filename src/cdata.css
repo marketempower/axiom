@@ -39,7 +39,6 @@
   }
 
   /* <p>, <ul>, <ol>, <blockquote p>:typography */
-  /* ff: serif, fs: 21px (1.3125rem), fw: 400, lh: 33px (1.57143), ls: -0.004em (-0.084px) */
   & > p,
   & > ol,
   & > ul,
@@ -171,55 +170,6 @@
     & tbody + tbody {
       @apply border-t-2 border-raven-100;
     }
-  }
-
-  /* <pre>:block */
-  & > pre,
-  & > pre + *,
-  & > .highlight,
-  & > .highlight + * {
-    @apply mt-10;
-  }
-
-  & > pre,
-  & > .highlight > pre {
-    @apply block whitespace-pre p-4 rounded;
-    @apply overflow-auto scrolling-touch subpixel-antialiased;
-
-    scrollbar-width: none;
-    &::-webkit-scrollbar {
-      @apply hidden;
-    }
-  }
-
-  /* <pre>, <code>:shared */
-  & > pre,
-  & > .highlight > pre,
-  & :not(pre) > code {
-    @apply font-mono font-normal text-sm;
-
-    direction: ltr;
-    hyphens: none;
-    tab-size: 2;
-    text-align: left;
-    letter-spacing: normal;
-    word-break: normal;
-    word-spacing: normal;
-  }
-
-  /* <code>:inline */
-  & :not(pre) > code {
-    @apply px-1 align-text-bottom whitespace-normal rounded-sm;
-  }
-
-  /* line numbers */
-  & > .highlight .ln {
-    @apply mr-4;
-  }
-
-  /* hightlight line */
-  & > .highlight .hl {
-    @apply block w-full;
   }
 
   /* hugo footnotes */

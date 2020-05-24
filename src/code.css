@@ -1,0 +1,53 @@
+.cdata {
+  /* <code>:wrap */
+  & > pre,
+  & > pre + *,
+  & > .highlight,
+  & > .highlight + * {
+    @apply mt-10;
+  }
+
+  /* <code>:block */
+  & > pre code,
+  & > .highlight code {
+    @apply block p-4 rounded whitespace-pre break-normal;
+    @apply overflow-auto scrolling-touch subpixel-antialiased;
+
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      @apply hidden;
+    }
+  }
+
+  /* <code>:inline */
+  & :not(pre) > code {
+    @apply rounded-sm align-baseline whitespace-normal;
+    padding: .1rem .25rem;
+  }
+
+  /* <code>:shared */
+  & > pre code,
+  & > .highlight code,
+  & :not(pre) > code {
+    @apply font-mono font-normal leading-normal text-left text-base;
+
+    direction: ltr;
+    hyphens: none;
+    tab-size: 2;
+    letter-spacing: normal;
+    word-spacing: normal;
+  }
+
+  /* line numbers */
+  & > .highlight .ln {
+    @apply mr-4;
+  }
+
+  @screen sm {
+    & > pre code,
+    & > .highlight code,
+    & :not(pre) > code {
+      @apply text-sm;
+    }
+  }
+}
