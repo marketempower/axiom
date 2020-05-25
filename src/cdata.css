@@ -8,7 +8,6 @@
   @apply text-raven-900a;
 
   /* Deal with long non-spaced strings that break layout */
-  word-break: break-word;
   @apply break-words;
 
   /* <hN>:typography */

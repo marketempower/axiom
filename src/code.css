@@ -7,10 +7,15 @@
     @apply mt-10;
   }
 
-  /* <code>:block */
+  & > pre,
+  & > .highlight pre {
+    @apply rounded;
+  }
+
+   /* <code>:block */
   & > pre code,
   & > .highlight code {
-    @apply block p-4 rounded whitespace-pre break-normal;
+    @apply block p-4 whitespace-pre break-normal;
     @apply overflow-auto scrolling-touch subpixel-antialiased;
 
     scrollbar-width: none;
@@ -41,6 +46,10 @@
   /* line numbers */
   & > .highlight .ln {
     @apply mr-4;
+  }
+
+  /* highlight line */
+  & > .highlight .hl {
   }
 
   @screen sm {
