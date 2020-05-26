@@ -1,20 +1,11 @@
 .cdata {
   /* <code>:wrap */
-  & > pre,
-  & > pre + *,
-  & > .highlight,
-  & > .highlight + * {
-    @apply mt-10;
-  }
-
-  & > pre,
-  & > .highlight pre {
+  & pre {
     @apply rounded;
   }
 
    /* <code>:block */
-  & > pre code,
-  & > .highlight code {
+  & pre > code {
     @apply block p-4 whitespace-pre break-normal;
     @apply overflow-auto scrolling-touch subpixel-antialiased;
 
@@ -31,8 +22,7 @@
   }
 
   /* <code>:shared */
-  & > pre code,
-  & > .highlight code,
+  & pre > code,
   & :not(pre) > code {
     @apply font-mono font-normal leading-normal text-left text-base;
 
@@ -44,17 +34,16 @@
   }
 
   /* line numbers */
-  & > .highlight .ln {
+  & .highlight code .ln {
     @apply mr-4;
   }
 
   /* highlight line */
-  & > .highlight .hl {
+  & .highlight code .hl {
   }
 
   @screen sm {
-    & > pre code,
-    & > .highlight code,
+    & pre > code,
     & :not(pre) > code {
       @apply text-sm;
     }
