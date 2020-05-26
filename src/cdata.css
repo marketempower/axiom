@@ -68,6 +68,17 @@
     @apply mt-10;
   }
 
+  /* remove margin */
+  /* inline injections */
+  & > script,
+  & > style,
+  & > script:first-child + *,
+  & > style:first-child + *,
+  & > script:first-child + style + *,
+  & > style:first-child + script + * {
+    @apply mt-0;
+  }
+
   /* <a>:link:visited */
   & > a:not([role=button]):link,
   & > a:not([role=button]):visited,
