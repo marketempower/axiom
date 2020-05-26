@@ -58,8 +58,8 @@
       "url": {{ $imgBrand | absURL }}
     }
   },
-  "datePublished": {{ dateFormat "2006-01-02T15:04:05Z" .Date.UTC | safeHTML }},
-  "dateModified": {{ dateFormat "2006-01-02T15:04:05Z" .Lastmod.UTC | safeHTML }},
+  "datePublished": {{ dateFormat "2006-01-02T15:04:05Z" .Date.UTC }},
+  "dateModified": {{ dateFormat "2006-01-02T15:04:05Z" .Lastmod.UTC }},
   "articleBody": {{ chomp .Content }}
 }
 </script>

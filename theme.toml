@@ -5,7 +5,7 @@ homepage = "https://github.com/marketempower/axiom"
 description = "Axiom is a powerful, high performance, modular Hugo theme, designed to make the readers of your content and the search engines happy."
 tags = ["seo", "organic-search", "structured-data", "cdn", "cloudinary", "netlify", "jamstack", "responsive-images", "pagespeed-95", "sharing", "atom-feed", "npm-scripts", "custom-css", "custom-js", "blog", "chroma", "modular", "fast", "responsive", "tailwindcss", "alpinejs", "seo"]
 features = ["seo", "organic-search", "structured-data", "cdn", "cloudinary", "netlify", "jamstack", "responsive-images", "pagespeed-95", "sharing", "atom-feed", "npm-scripts", "custom-css", "custom-js", "blog", "chroma", "modular", "fast", "responsive", "tailwindcss", "alpinejs", "seo"]
-min_version = "0.60.0"
+min_version = "0.70.0"
 
 [author]
 name = "Jhaura Wachsman"
