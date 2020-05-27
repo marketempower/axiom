@@ -7,9 +7,9 @@ Axiom is designed to make the readers of your content and the search engines hap
 To learn more, see the Quick Start, Documentation, and Live Example resources below:
 
 - Axiom Resources:
-  - [Quick Start](https://axiom-example.netlify.app/docs/quick-start/)
-  - [Documentation](https://axiom-example.netlify.app/docs/)
-  - [Live Example](https://axiom-example.netlify.app/)
+  - [Quick Start](https://www.axiomtheme.com/docs/quick-start/)
+  - [Documentation](https://www.axiomtheme.com/docs/)
+  - [Live Example](https://www.axiomtheme.com/)
 - Axiom Repositories:
   - [Axiom Theme](https://github.com/marketempower/axiom)
   - [Axiom Example](https://github.com/marketempower/axiom-example)
