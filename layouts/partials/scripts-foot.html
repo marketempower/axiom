@@ -14,10 +14,10 @@
 <script>
 (function() {
   window.setTimeout(function() {
-    var gAds = document.createElement("script");
-    gAds.setAttribute("defer", "defer");
-    gAds.src = {{ $adsbygoogle }};
-    document.body.appendChild(gAds);
+    var d = document, ads = d.createElement('script');
+    ads.src = {{ $adsbygoogle }};
+    ads.setAttribute("defer", "");
+    d.body.appendChild(ads);
   }, 2000);
 })();
 </script>
@@ -30,12 +30,12 @@
 <script>
 (function() {
   window.setTimeout(function(){
-    var fbPixel = document.createElement("img");
-    fbPixel.setAttribute("width", "1");
-    fbPixel.setAttribute("height", "1");
-    fbPixel.setAttribute("style", "display:none");
-    fbPixel.src = "https://www.facebook.com/tr?id={{ . }}&amp;ev=PageView";
-    document.body.appendChild(fbPixel);
+    var d = document, fb = d.createElement("img");
+    fb.src = "https://www.facebook.com/tr?id={{ . }}&amp;ev=PageView";
+    fb.setAttribute("width", "1");
+    fb.setAttribute("height", "1");
+    fb.setAttribute("style", "display:none");
+    d.body.appendChild(fb);
   }, 1750);
 })();
 </script>
