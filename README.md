@@ -9,7 +9,7 @@ To learn more, see the Quick Start, Documentation, and Live Example resources be
 - Axiom Resources:
   - [Quick Start](https://www.axiomtheme.com/docs/quick-start/)
   - [Documentation](https://www.axiomtheme.com/docs/)
-  - [Live Example](https://www.axiomtheme.com/)
+  - [Live Example](https://axiom-example.netlify.app/)
 - Axiom Repositories:
   - [Axiom Theme](https://github.com/marketempower/axiom)
   - [Axiom Example](https://github.com/marketempower/axiom-example)
