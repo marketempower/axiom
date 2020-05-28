@@ -8,8 +8,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
   <meta name="robots" content="noodp,noydir">
   <meta name="pinterest" content="nopin">
+
   {{- if not (eq .Site.Params.omitThemeAttribution true) }}
-  <meta name="hugo-theme" content="{{ T "theme" | safeHTMLAttr }}">
+  {{- $pkgJson := getJSON "./package.json" }}
+  <meta name="hugo-theme" content="{{ printf "%s %s" (T "theme" .) $pkgJson.version | safeHTMLAttr }}">
   {{- end }}
 
   <link rel="icon" type="image/png" sizes="32x32" href="{{ $imgFavIconAlt }}">
@@ -19,10 +21,12 @@
   {{- with .Permalink }}
   <link rel="canonical" href="{{ . }}">
   {{- end }}
+
   {{- range .AlternativeOutputFormats }}
   {{ printf `<link rel="%s" type="%s" href="%s" hreflang="%s"/>` .Rel .MediaType.Type .Permalink $.Site.LanguageCode | safeHTML }}
   {{- end }}
-  {{ partial "styles-app" . }}
+
+  {{- partial "styles-app" . }}
   {{- partial "styles-type" . }}
   {{- partial "structured-data" . }}
   {{- partial "scripts-head" . }}
