@@ -4,7 +4,7 @@
 {{- if .Params.feature }}
 {{- $imgFeature := partial "cdn-src" (dict "Site" $.Site "Page" . "src" .Params.feature "preset" "feature") -}}
 <link rel="preload" as="image" href="{{ $imgFeature }}">
-{{ end }}
+{{- end }}
 
 <title>{{ block "title" . }}{{ with .Title }}{{ . }} : {{ end }}{{ .Site.Title }}{{ end }}</title>
 
