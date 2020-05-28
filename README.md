@@ -2,6 +2,8 @@
 
 Axiom is designed to make the readers of your content and the search engines happy. Designed with a modular structure, and fully customizable in every way, Axiom adapts to your project, instead of forcing an opinionated structure.
 
+🙌 Follow [Axiom](https://twitter.com/intent/follow?screen_name=axiomtheme) on Twitter to stay up-to-date with the latest news.
+
 ## Getting Started
 
 To learn more, see the Quick Start, Documentation, and Live Example resources below:
