@@ -10,7 +10,7 @@
   <meta name="pinterest" content="nopin">
 
   {{- if not (eq .Site.Params.omitThemeAttribution true) }}
-  {{- $pkgJson := getJSON "./package.json" }}
+  {{- $pkgJson := getJSON "./themes/axiom/package.json" }}
   <meta name="hugo-theme" content="{{ printf "%s %s" (T "theme" .) $pkgJson.version | safeHTMLAttr }}">
   {{- end }}
 
