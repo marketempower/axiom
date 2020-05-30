@@ -44,7 +44,7 @@
     {{ end }}
     <updated>{{ dateFormat "2006-01-02T15:04:05Z" .Lastmod.UTC | safeHTML }}</updated>
     <published>{{ dateFormat "2006-01-02T15:04:05Z" .Date.UTC | safeHTML }}</published>
-    <content type="html">{{ chomp .Content }}</content>
+    <content type="html">{{ chomp .Content | htmlEscape }}</content>
   </entry>
   {{- end }}
 </feed>
