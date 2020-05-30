@@ -70,6 +70,7 @@
 
   /* remove margin */
   /* inline injections */
+  & > link,
   & > script,
   & > style,
   & > script:first-child + *,
