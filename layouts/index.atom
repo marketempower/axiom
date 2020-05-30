@@ -31,7 +31,7 @@
   {{- range $pages }}
   <entry>
     <title>{{ .Title }}</title>
-    {{- $author := partial "author-data" . -}}
+    {{- $author := partial "author-data" . }}
     <author>
       <name>{{ $author.name }}</name>
       <uri>{{ $author.uri }}</uri>
@@ -44,7 +44,7 @@
     {{ end }}
     <updated>{{ dateFormat "2006-01-02T15:04:05Z" .Lastmod.UTC | safeHTML }}</updated>
     <published>{{ dateFormat "2006-01-02T15:04:05Z" .Date.UTC | safeHTML }}</published>
-    <content type="html">{{ chomp .Content | htmlEscape }}</content>
+    <content type="html">{{ printf "<![CDATA[%s]]>" (chomp .Content) | safeHTML }}</content>
   </entry>
   {{- end }}
 </feed>
