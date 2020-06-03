@@ -9,7 +9,13 @@ var disqus_config = function () {
 
 (function() {
   window.setTimeout(function() {
-    var d = document, s = d.createElement('script');
+    var d = document;
+    if (['localhost', '127.0.0.1'].indexOf(window.location.hostname) != -1) {
+      d.getElementById('disqus_thread').innerHTML = '<div class="text-center">Disqus disabled during local preview.</div>';
+      return;
+    }
+
+    var s = d.createElement('script');
     s.src = 'https://{{ .Site.Params.services.disqusShortname }}.disqus.com/embed.js';
     s.setAttribute('data-timestamp', +new Date());
     s.setAttribute("defer", "");
