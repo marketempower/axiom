@@ -3,8 +3,9 @@
 {{- if ge $limit 1 -}}
 {{- $pages = $pages | first $limit -}}
 {{- end -}}
+{{- $langCode := .Site.LanguageCode | default "en-us" -}}
 {{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ .Site.LanguageCode }}">
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ $langCode }}">
   <title>{{ .Site.Title }}</title>
   <subtitle>{{ partial "meta-subtitle" . | plainify }}</subtitle>
   <id>{{ "/" | absLangURL }}</id>
@@ -23,10 +24,10 @@
   {{- end }}
   <updated>{{ dateFormat "2006-01-02T15:04:05Z" now.UTC | safeHTML }}</updated>
   {{- with .OutputFormats.Get "ATOM" }}
-  {{ printf `<link rel="self" type="%s" href="%s" hreflang="%s"/>` .MediaType.Type .Permalink $.Site.LanguageCode | safeHTML }}
+  {{ printf `<link rel="self" type="%s" href="%s" hreflang="%s"/>` .MediaType.Type .Permalink $langCode | safeHTML }}
   {{- end }}
   {{- range .AlternativeOutputFormats }}
-  {{ printf `<link rel="alternate" type="%s" href="%s" hreflang="%s"/>` .MediaType.Type .Permalink $.Site.LanguageCode | safeHTML }}
+  {{ printf `<link rel="alternate" type="%s" href="%s" hreflang="%s"/>` .MediaType.Type .Permalink $langCode | safeHTML }}
   {{- end }}
   {{- range $pages }}
   <entry>
