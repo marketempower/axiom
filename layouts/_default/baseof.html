@@ -1,18 +1,13 @@
 {{- $imgFavIconIco := partial "cdn-src" (dict "Site" $.Site "Page" . "src" .Site.Params.image.faviconIco) -}}
 {{- $imgFavIconAlt := partial "cdn-src" (dict "Site" $.Site "Page" . "src" .Site.Params.image.faviconAlt) -}}
 {{- $imgAppIcon := partial "cdn-src" (dict "Site" $.Site "Page" . "src" .Site.Params.image.icon1To1) -}}
+{{- $langCode := .Site.LanguageCode | default "en-us" -}}
 <!doctype html>
-<html lang="{{ .Site.LanguageCode }}">
+<html lang="{{ $langCode }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-  <meta name="robots" content="noodp,noydir">
-  <meta name="pinterest" content="nopin">
-
-  {{- if not (eq .Site.Params.omitThemeAttribution true) }}
-  {{- $pkgJson := getJSON "./themes/axiom/package.json" }}
-  <meta name="hugo-theme" content="{{ printf "%s %s" (T "theme" .) $pkgJson.version | safeHTMLAttr }}">
-  {{- end }}
+  {{- partial "meta-theme" . }}
 
   <link rel="icon" type="image/png" sizes="32x32" href="{{ $imgFavIconAlt }}">
   <link rel="icon" type="image/x-icon" href="{{ $imgFavIconIco }}">
@@ -23,7 +18,7 @@
   {{- end }}
 
   {{- range .AlternativeOutputFormats }}
-  {{ printf `<link rel="%s" type="%s" href="%s" hreflang="%s"/>` .Rel .MediaType.Type .Permalink $.Site.LanguageCode | safeHTML }}
+  {{ printf `<link rel="%s" type="%s" href="%s" hreflang="%s">` .Rel .MediaType.Type .Permalink $langCode | safeHTML }}
   {{- end }}
 
   {{- partial "styles-app" . }}

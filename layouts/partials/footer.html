@@ -1,4 +1,3 @@
-{{- $copyright := (T "copyright" .) | default .Site.Copyright | default .Site.Title -}}
 <footer class="footer">
   <div class="ax-l-i">
     {{- $currentPage := . }}
@@ -18,12 +17,14 @@
     {{- end }}
 
     <div class="footer-copyright text-sm text-center text-gray-500 mt-4">
+      {{- $copyright := (T "copyright" .) | default .Site.Copyright | default .Site.Title }}
       &#169; {{ .Site.Params.copyrightYear }}-{{ dateFormat "2006" now.UTC }} {{ $copyright }}
     </div>
 
-    {{- if not (eq .Site.Params.omitThemeAttribution true) }}
+    {{- if not (eq .Site.Params.disableThemeAttribution true) }}
+    {{- $theme := .Scratch.Get "theme" }}
     <div class="text-sm sm:text-xs text-center text-gray-500 mt-2">
-      {{ printf `%s <a href="%s">%s</a>` (T "poweredBy" .) .Site.Data.theme.url (T "theme" .) | safeHTML }}
+      {{ printf `%s <a href="%s?utm_source=theme-footer&utm_medium=website&utm_campaign=referral">%s</a>` (T "poweredBy" .) $theme.homepage $theme.name | safeHTML }}
     </div>
     {{- end }}
   </div>
