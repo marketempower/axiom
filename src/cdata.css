@@ -48,8 +48,7 @@
   }
 
   /* margin-top */
-  & > * + *,
-  & li > p + p {
+  & > * + * {
     @apply mt-9;
   }
 
@@ -66,6 +65,12 @@
   /* extra margin */
   & > * + h1 {
     @apply mt-10;
+  }
+
+  /* less margin */
+  & li > p + p,
+  & > blockquote > p + p {
+    @apply mt-8;
   }
 
   /* remove margin */
@@ -112,22 +117,23 @@
   /* <blockquote> */
   /*
    Needs to support blockquotes with multiple structures:
-   1 markdown: quote only, no footer, no cite
-   2 markdown: closing p tag </p>, plus cite
-   3 markdown: previous plus footer with child cite
-   4 shortcode: same as previous but text input only
+   markdown:
+    - quote single or multiple paragraphs
+    - line-break (two-spaces, <br>), plus cite
+   shortcode: formal structure
    */
   & > blockquote {
     @apply pl-5 border-l-4 border-raven-300;
 
-    /* <blockquote footer, cite, or dash> */
-    @apply text-base text-raven-500;
-  }
+    & p {
+      /* see above at <blockquote p>:typography */
+      @apply text-raven-700;
+    }
 
-  /* <blockquote p> */
-  & > blockquote p {
-    /* see above at <blockquote p>:typography */
-    @apply text-raven-700;
+    & footer, & cite {
+      @apply text-base leading-normal text-raven-500;
+      font-family: system-ui, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif;
+    }
   }
 
   /* <ul>, <ol>, <li> */
