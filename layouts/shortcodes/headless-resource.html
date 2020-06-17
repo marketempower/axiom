@@ -7,4 +7,4 @@
 {{- $pId := printf "%s%s" (index $s 1) "*" -}}
 {{- $b := .Site.GetPage $bId -}}
 {{- $p := $b.Resources.GetMatch $pId -}}
-{{- $p.Content -}}
+{{- $p.Content | safeHTML -}}
