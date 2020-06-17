@@ -15,17 +15,13 @@
 
 /* layout inner, gutter = mx-4 */
 .ax-l-i {
-  @apply flex-grow min-w-0 max-w-680 mx-4 mt-8;
-}
-
-.ax-feature > .ax-l-i {
-  @apply max-w-5xl;
+  @apply flex-grow min-w-0 mx-4 mt-8;
 }
 
 .header {
   @apply relative shadow-b bg-white py-3 flex justify-center;
   & > .ax-l-i {
-    @apply flex items-center max-w-6xl mt-0;
+    @apply flex items-center mt-0;
   }
 
   & .ax-logo {
@@ -40,7 +36,7 @@
 .footer {
   @apply flex justify-center border-t border-gray-200 bg-white mt-8 py-6;
   & > .ax-l-i {
-    @apply max-w-6xl mt-0;
+    @apply mt-0;
   }
 }
 
