@@ -3,7 +3,7 @@
 {{- $title := printf "%s%s %s" (T $taxonomy | default  (humanize $taxonomy)) ":" .Title -}}
 <div class="default-taxonomy">
   <div class="ax-content ax-l-o">
-    <div class="ax-l-i">
+    <div class="ax-l-i{{ printf " %s" (.Params.maxWidthContent | default "max-w-680") }}">
       <h1 class="section-title font-content-sans font-semibold uppercase tracking-wide text-2xl text-raven-800">{{ $title | safeHTML }}</h1>
 
       {{- range .Paginator.Pages }}

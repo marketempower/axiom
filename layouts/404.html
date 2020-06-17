@@ -1,7 +1,7 @@
 {{ define "main" }}
 <div class="default-single">
   <div class="ax-content ax-l-o">
-    <div class="ax-l-i">
+    <div class="ax-l-i{{ printf " %s" (.Params.maxWidthContent | default "max-w-680") }}">
       <h1 class="page-title font-content-title font-normal leading-tight tracking-default text-40">{{ (T "e404Title" .) }}</h1>
 
       <article class="cdata mt-8">
