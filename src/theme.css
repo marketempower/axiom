@@ -4,7 +4,7 @@
 .ax-logo {
   & img,
   & svg {
-    @apply h-6 w-auto;
+    @apply h-7 w-auto;
   }
 }
 
@@ -19,7 +19,7 @@
 }
 
 .header {
-  @apply relative shadow-b bg-white py-3 flex justify-center;
+  @apply relative shadow-b bg-white py-4 flex justify-center;
   & > .ax-l-i {
     @apply flex items-center mt-0;
   }
@@ -63,7 +63,7 @@ p.post-subtitle {}
   .ax-logo {
     & img,
     & svg {
-      @apply h-9;
+      @apply h-8;
     }
   }
 

@@ -18,13 +18,13 @@
       <a class="block" href="{{ "/" | relLangURL }}" title="{{ .Site.Title }}">{{- $logo | safeHTML -}}</a>
     </div>
     <div class="ax-user">
-      <a class="p-2 w-7 h-7 block text-raven-500 hover:text-gray-800 focus:text-gray-800 focus:outline-none" target="_blank" rel="noopener nofollow" href="https://www.google.com/search?q=site:{{ .Site.Params.brand.domain | default .Site.BaseURL }}" title="{{ (T "search" .) }}">
+      <a class="p-2 w-8 h-8 block text-raven-500 hover:text-gray-800 focus:text-gray-800 focus:outline-none" target="_blank" rel="noopener nofollow" href="https://www.google.com/search?q=site:{{ .Site.Params.brand.domain | default .Site.BaseURL }}" title="{{ (T "search" .) }}">
         {{ partial "svg/search.svg" (dict "class" "fill-current") }}
       </a>
       {{- $currentPage := . }}
       {{- range (.Site.Menus.main) }}
       {{- $isCurrent := (eq (trim $currentPage.RelPermalink "/") (trim .URL "/")) }}
-      <a class="p-2 block text-sm leading-none{{ if $isCurrent }} text-gray-500 cursor-not-allowed{{ else }} text-raven-500 hover:text-gray-800 focus:text-gray-800 focus:outline-none{{ end }}"{{ if not $isCurrent }} href="{{ .URL | relLangURL }}"{{ end }}>
+      <a class="p-2 block text-base leading-none{{ if $isCurrent }} text-gray-500 cursor-not-allowed{{ else }} text-raven-500 hover:text-gray-800 focus:text-gray-800 focus:outline-none{{ end }}"{{ if not $isCurrent }} href="{{ .URL | relLangURL }}"{{ end }}>
         {{ .Name }}
       </a>
       {{- end }}
