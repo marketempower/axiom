@@ -98,6 +98,10 @@
   & > blockquote a:visited,
   & > figure figcaption a:link,
   & > figure figcaption a:visited,
+  & .link:link,
+  & .link:visited,
+  & > table a:link,
+  & > table a:visited,
   & > .footnotes a:link,
   & > .footnotes a:visited {
     @apply text-blue-600;
@@ -110,6 +114,8 @@
   & > ul li a:hover,
   & > blockquote a:hover,
   & > figure figcaption a:hover,
+  & .link:hover,
+  & > table a:hover,
   & > .footnotes a:hover {
     @apply text-blue-800 underline;
   }
@@ -131,8 +137,7 @@
     }
 
     & footer, & cite {
-      @apply text-base leading-normal text-raven-500;
-      font-family: system-ui, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif;
+      @apply font-basic-sans text-base leading-normal text-raven-500;
     }
   }
 

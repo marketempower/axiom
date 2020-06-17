@@ -4,5 +4,6 @@
 
 @import "global";
 @import "theme";
+@import "tools";
 @import "cdata";
 @import "code";
