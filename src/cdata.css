@@ -104,7 +104,7 @@
   & > table a:visited,
   & > .footnotes a:link,
   & > .footnotes a:visited {
-    @apply text-blue-600;
+    color: #007bff;
   }
 
   /* <a>:hover:active */
@@ -117,7 +117,8 @@
   & .link:hover,
   & > table a:hover,
   & > .footnotes a:hover {
-    @apply text-blue-800 underline;
+    @apply underline;
+    color: #0056b3;
   }
 
   /* <blockquote> */
