@@ -23,7 +23,7 @@
     "watch:js": "chokidar \"./src/**/*.js\" -c \"NODE_ENV=development npm run js\""
   },
   "devDependencies": {
-    "autoprefixer": "^9.8.2",
+    "autoprefixer": "^9.8.4",
     "chokidar-cli": "^2.1.0",
     "concat": "^1.0.3",
     "cssnano": "^4.1.10",
