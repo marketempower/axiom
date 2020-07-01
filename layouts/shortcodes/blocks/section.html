@@ -3,25 +3,28 @@
 {{- $style := "" -}}
 {{- $mdown := "" -}}
 {{- $cdata := "" -}}
+{{- $gutter := "" -}}
 {{- if .IsNamedParams }}
 {{- $class = .Get "class" -}}
 {{- $width = .Get "width" -}}
 {{- $style = .Get "style" -}}
 {{- $mdown = .Get "mdown" -}}
 {{- $cdata = .Get "cdata" -}}
+{{- $gutter = .Get "gutter" -}}
 {{- else }}
 {{- $class = .Get 0 -}}
 {{- $width = .Get 1 -}}
 {{- $style = .Get 2 -}}
 {{- $mdown = .Get 3 -}}
 {{- $cdata = .Get 4 -}}
+{{- $gutter = .Get 5 -}}
 {{- end }}
-{{- $class = $class | default "flex-grow min-w-0 mx-4 sm:mx-8 mt-8" -}}
 {{- $width = $width | default "max-w-5xl" -}}
 {{- $mdown = $mdown | default "on" -}}
 {{- $cdata = $cdata | default "on" -}}
+{{- $gutter = $gutter | default "on" -}}
 <div class="section flex justify-center">
-  <div class="section-inner {{ $class }}{{ with $width }} {{ . }}{{ end }}{{ with (eq $cdata "on") }} cdata{{ end }}"{{ with $style }} style="{{ . | safeCSS }}"{{ end }}>
+  <div class="section-inner flex-grow min-w-0{{ with (eq $gutter "on") }} mx-4 sm:mx-8{{ end }}{{ with $class }} {{ . }}{{ end }}{{ with $width }} {{ . }}{{ end }}{{ with (eq $cdata "on") }} cdata{{ end }}"{{ with $style }} style="{{ . | safeCSS }}"{{ end }}>
     {{ if (eq $mdown "on") }}{{ .Inner | markdownify }}{{ else }}{{ .Inner }}{{ end }}
   </div>
 </div>
