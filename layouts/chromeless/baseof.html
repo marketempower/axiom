@@ -1,0 +1,20 @@
+{{- $langCode := .Site.LanguageCode | default "en-us" -}}
+<!doctype html>
+<html lang="{{ $langCode }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+
+  <title>{{ block "title" . }}{{ with .Title }}{{ . }} : {{ end }}{{ .Site.Title }}{{ end }}</title>
+
+  {{- partial "styles-app" . }}
+  {{- partial "styles-type" . }}
+  {{- partial "scripts-head" . }}
+</head>
+<body>
+  <main class="chromeless-baseof">
+  {{- block "main" . }}{{ end }}
+  </main>
+  {{- partial "scripts-foot" . }}
+</body>
+</html>
