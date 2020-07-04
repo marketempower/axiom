@@ -1,0 +1,6 @@
+{{- $slug := .Get 0 }}
+{{- $page := .Site.GetPage $slug }}
+{{- if not $page }}
+{{- errorf "Page '%s' was not found. Shortcode: 'summary'." $slug }}
+{{- end }}
+{{- $page.Render "summary" }}
