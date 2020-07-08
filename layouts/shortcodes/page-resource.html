@@ -1,0 +1,6 @@
+{{- $r := .Get 0 }}
+{{- $pr := .Page.Resources.GetMatch (printf "*%s*" $r) }}
+{{- if not $pr }}
+{{- errorf "Page resource '%s' was not found. Shortcode: 'page-resource'." $r }}
+{{- end }}
+{{- $pr.Content | safeHTML }}
