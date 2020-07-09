@@ -210,6 +210,12 @@
     }
   }
 
+  /* enhancements */
+  & > .lead {
+    @apply font-basic-sans font-light leading-snug text-2xl;
+    letter-spacing: normal;
+  }
+
   /* overrides */
   & > .mt-0 {
     margin-top: 0;
