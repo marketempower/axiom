@@ -17,5 +17,5 @@
 {{- errorf "Missing required 'name'. Shortcode: 'svg'." -}}
 {{- end }}
 {{- $name = printf "svg/%s.svg" $name -}}
-{{- $class := $class | default "fill-current" -}}
+{{- $class = $class | default "fill-current" -}}
 {{- partial $name (dict "class" $class "style" $style "viewbox" $viewbox) -}}
