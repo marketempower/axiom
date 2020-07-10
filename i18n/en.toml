@@ -37,6 +37,9 @@ other = "Alert"
 [download]
 other = "Download"
 
+[buyNow]
+other = "Buy Now"
+
 [twitterShare]
 other = "Share on Twitter"
 
