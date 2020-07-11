@@ -4,17 +4,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  {{- partial "meta-theme" . }}
+  {{- partial "google-tag-manager-head" . }}
 
   <title>{{ block "title" . }}{{ with .Title }}{{ . }} : {{ end }}{{ .Site.Title }}{{ end }}</title>
 
   {{- partial "styles-app" . }}
   {{- partial "styles-type" . }}
-  {{- partial "scripts-head" . }}
+  {{- partial "structured-data" . }}
+  {{- partial "bundle-js-preload" . }}
+  {{- partial "google-analytics" . }}
 </head>
 <body>
+  {{- partial "google-tag-manager-body" . }}
   <main class="chromeless-baseof">
   {{- block "main" . }}{{ end }}
   </main>
-  {{- partial "scripts-foot" . }}
+  {{- partial "bundle-js" . }}
+  {{- partial "google-adsense" . }}
+  {{- partial "facebook-pixel" . }}
 </body>
 </html>

@@ -1,0 +1,18 @@
+{{- with .Site.Params.services.googleAdsenseId }}
+{{- $adsbygoogle := "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" -}}
+{{- if eq $.Site.Params.services.googleAdsenseLoad "lazy" }}
+<script>
+(function() {
+  window.setTimeout(function() {
+    var d = document, ads = d.createElement('script');
+    ads.src = {{ $adsbygoogle }};
+    ads.setAttribute("defer", "");
+    ads.setAttribute("data-ad-client", "{{ . }}");
+    d.body.appendChild(ads);
+  }, 2000);
+})();
+</script>
+{{- else }}
+<script {{ $.Site.Params.services.googleAdsenseLoad | default "async" | safeHTMLAttr }} data-ad-client="{{ . }}" src="{{ $adsbygoogle }}"></script>
+{{- end }}
+{{- end }}

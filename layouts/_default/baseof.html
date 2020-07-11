@@ -8,6 +8,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
   {{- partial "meta-theme" . }}
+  {{- partial "google-tag-manager-head" . }}
 
   <link rel="icon" type="image/png" sizes="32x32" href="{{ $imgFavIconAlt }}">
   <link rel="icon" type="image/x-icon" href="{{ $imgFavIconIco }}">
@@ -24,14 +25,18 @@
   {{- partial "styles-app" . }}
   {{- partial "styles-type" . }}
   {{- partial "structured-data" . }}
-  {{- partial "scripts-head" . }}
+  {{- partial "bundle-js-preload" . }}
+  {{- partial "google-analytics" . }}
 </head>
 <body>
+  {{- partial "google-tag-manager-body" . }}
   {{ partial "header" . }}
   <main>
   {{- block "main" . }}{{ end }}
   </main>
   {{ partial "footer" . }}
-  {{- partial "scripts-foot" . }}
+  {{- partial "bundle-js" . }}
+  {{- partial "google-adsense" . }}
+  {{- partial "facebook-pixel" . }}
 </body>
 </html>

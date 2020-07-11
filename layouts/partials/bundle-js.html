@@ -1,0 +1,9 @@
+{{- $appJS := resources.Get "app.js" }}
+{{- $customJS := resources.Get "custom.js" }}
+{{- $slice := slice $appJS }}
+{{- if $customJS }}
+{{- $slice = $slice | append ($customJS | resources.Minify) }}
+{{- end }}
+{{- $bundleJS := $slice | resources.Concat "bundle.js" }}
+{{- $bundleJS = printf "%s?v=%d" $bundleJS.RelPermalink now.Unix }}
+<script src="{{ $bundleJS | safeHTML }}"></script>
