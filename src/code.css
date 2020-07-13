@@ -9,6 +9,7 @@
     @apply block p-4 whitespace-pre break-normal;
     @apply overflow-auto scrolling-touch subpixel-antialiased;
 
+    -ms-overflow-style: -ms-autohiding-scrollbar;
     scrollbar-width: none;
     &::-webkit-scrollbar {
       @apply hidden;
