@@ -102,6 +102,8 @@
   & .link:visited,
   & > table a:link,
   & > table a:visited,
+  & > .table-responsive > table a:link,
+  & > .table-responsive > table a:visited,
   & > .footnotes a:link,
   & > .footnotes a:visited {
     color: #007bff;
@@ -116,6 +118,7 @@
   & > figure figcaption a:hover,
   & .link:hover,
   & > table a:hover,
+  & > .table-responsive > table a:hover,
   & > .footnotes a:hover {
     @apply underline;
     color: #0056b3;
@@ -174,8 +177,9 @@
   }
 
   /* <table> */
-  & > table {
-    @apply w-full border-collapse;
+  & > table,
+  & > .table-responsive > table {
+    @apply w-full max-w-full;
 
     & th {
       @apply font-semibold;
