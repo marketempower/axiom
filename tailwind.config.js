@@ -77,4 +77,7 @@ module.exports = {
     padding: ['responsive', 'first', 'last'],
   },
   plugins: [],
+  corePlugins: {
+    container: false,
+  }
 }
