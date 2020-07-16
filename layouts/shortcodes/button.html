@@ -2,18 +2,21 @@
 {{- $type := "" -}}
 {{- $icon := "" -}}
 {{- $href := "" -}}
+{{- $id := "" -}}
 {{- if .IsNamedParams }}
 {{- $text = .Get "text" -}}
 {{- $type = .Get "type" -}}
 {{- $icon = .Get "icon" -}}
 {{- $href = .Get "href" -}}
+{{- $id = .Get "id" -}}
 {{- else }}
 {{- $text = .Get 0 -}}
 {{- $type = .Get 1 -}}
 {{- $icon = .Get 2 -}}
 {{- $href = .Get 3 -}}
+{{- $id = .Get 4 -}}
 {{- end }}
 {{- if not $text }}
 {{- errorf "Missing required 'text'. Shortcode: 'button'." -}}
 {{- end }}
-{{- partial "button" (dict "Site" $.Site "Page" . "text" $text "type" $type "icon" $icon "href" $href) -}}
+{{- partial "button" (dict "Site" $.Site "Page" . "text" $text "type" $type "icon" $icon "href" $href "id" $id) -}}

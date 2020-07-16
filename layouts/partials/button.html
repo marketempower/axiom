@@ -3,8 +3,9 @@
 {{- end }}
 {{- $text := .text -}}
 {{- $type := .type | default "default" -}}
-{{- $svg := "" -}}
+{{- $id := .id -}}
 {{- $class := "" -}}
+{{- $svg := "" -}}
 {{- with .icon }}
 {{- $svg = printf "svg/%s.svg" . -}}
 {{- $svg = partial $svg (dict "class" "fill-current h-4 w-auto mr-2") -}}
@@ -23,7 +24,7 @@
 {{- $class = printf "%s rounded font-content-sans font-semibold %s %s %s py-2 px-4 %s" $class $textColor $bgColor $hoverColor $borderColor -}}
 {{- $class = trim $class " " -}}
 {{- if $href }}
-<a class="{{ $class }}" href="{{ $href }}" role="button">
+<a{{ with $id }} id="{{ . }}"{{ end }} class="{{ $class }}" href="{{ $href }}" role="button">
   {{- with $svg }}
   {{ . | safeHTML }}
   {{- end }}
