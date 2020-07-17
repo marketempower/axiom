@@ -30,11 +30,14 @@
     @apply text-26;
   }
 
-  & > h3,
+  & > h3 {
+    @apply text-2xl;
+  }
+
   & > h4,
   & > h5,
   & > h6 {
-    @apply text-2xl;
+    @apply text-xl;
   }
 
   /* <p>, <ul>, <ol>, <blockquote p>:typography */
