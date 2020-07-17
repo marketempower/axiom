@@ -46,13 +46,13 @@ height="{{ . }}"
 {{- if or (or (.title) (.caption)) (.attr) }}
 <figcaption class="{{ $captionClass }}">
 {{- with (.title) }}
-<h4>{{ . }}</h4>
+<h4>{{ . | safeHTML }}</h4>
 {{- end }}
 {{- if or (.caption) (.attr) }}
-<p>{{- .caption | markdownify -}}
+<p>{{- .caption | markdownify | safeHTML -}}
 {{ if .attr }} {{ end }}{{/* yup, just a space */}}
 {{- with .attrlink }}<a href="{{ . }}">{{- end -}}
-{{ .attr | markdownify }}
+{{ .attr | markdownify | safeHTML }}
 {{- if .attrlink }}</a>{{- end -}}
 </p>
 {{- end }}

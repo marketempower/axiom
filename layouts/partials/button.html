@@ -28,13 +28,13 @@
   {{- with $svg }}
   {{ . | safeHTML }}
   {{- end }}
-  <span>{{ $text }}</span>
+  <span>{{ $text | safeHTML }}</span>
 </a>
 {{- else }}
 <button class="{{ $class }}" role="button">
   {{- with $svg }}
   {{ . | safeHTML }}
   {{- end }}
-  <span>{{ $text }}</span>
+  <span>{{ $text | safeHTML }}</span>
 </button>
 {{- end }}
