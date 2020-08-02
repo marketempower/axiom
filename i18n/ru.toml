@@ -1,0 +1,83 @@
+[home]
+other = "Главная"
+
+[all]
+other = "Все"
+
+[recent]
+other = "Недавние"
+
+[posts]
+other = "Посты"
+
+[tag]
+other = "Тег"
+
+[category]
+other = "Категория"
+
+[search]
+other = "Поиск"
+
+[info]
+other = "Инфо"
+
+[information]
+other = "Информация"
+
+[warn]
+other = "Внимание"
+
+[warning]
+other = "Предупреждение"
+
+[alert]
+other = "Внимание"
+
+[download]
+other = "Скачать"
+
+[buyNow]
+other = "Купить"
+
+[twitterShare]
+other = "Поделиться в Twitter"
+
+[facebookShare]
+other = "Поделиться в Facebook"
+
+[facebook]
+other = "Facebook"
+
+[github]
+other = "Github"
+
+[instagram]
+other = "Instagram"
+
+[linkedin]
+other = "LinkedIn"
+
+[pinterest]
+other = "Pinterest"
+
+[stackoverflow]
+other = "Stack Overflow"
+
+[twitter]
+other = "Twitter"
+
+[youtube]
+other = "Youtube"
+
+[e404Title]
+other = "Страница не найдена"
+
+[e404Msg]
+other = "Ой, такой страницы на сайте не нашлось. Вернитесь на {{ .homeLink }} или воспользуйтесь поиском. (404 Error)"
+
+[theme]
+other = "Axiom"
+
+[poweredBy]
+other = "Powered by"
