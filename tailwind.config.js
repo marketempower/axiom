@@ -78,6 +78,7 @@ module.exports = {
   },
   plugins: [],
   corePlugins: {
+    animation: false,
     container: false,
   }
 }
