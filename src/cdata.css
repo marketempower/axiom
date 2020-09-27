@@ -217,6 +217,13 @@
     }
   }
 
+  /* hugo toc */
+  & .toc {
+    & > nav li > ul {
+      padding-left: 1em;
+    }
+  }
+
   /* enhancements */
   & > .lead {
     @apply font-basic-sans font-light leading-snug text-2xl;
