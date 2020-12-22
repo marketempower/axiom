@@ -12,7 +12,7 @@
 }
 
 .table-responsive {
-  @apply block w-full overflow-x-auto scrolling-touch;
+  @apply block w-full overflow-x-auto;
 
   -ms-overflow-style: -ms-autohiding-scrollbar;
   scrollbar-width: none;
