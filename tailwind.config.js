@@ -1,23 +1,11 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-  future: {
-    purgeLayersByDefault: true,
-    removeDeprecatedGapUtilities: true,
-  },
-  target: ['relaxed', {
-    transform: 'ie11',
-    backgroundColor: 'ie11',
-    textColor: 'ie11',
-    borderColor: 'ie11',
-    placeholderColor: 'ie11',
-    divideColor: 'ie11',
-  }],
   purge: {
     layers: ['components', 'utilities'],
     content: ['./*(layouts|content|data|static)/**/*.*(html|toml|md)'],
     options: {
-      whitelist: ['static', 'relative', 'absolute', 'block', 'hidden', 'inline-block', 'inline-block', 'inline', 'flex', 'flex-none', 'flex-1', 'flex-grow', 'justify-center', 'table', 'float-left', 'float-right', 'text-left', 'text-center', 'text-right', 'text-justify', 'font-basic-sans', 'font-content-sans', 'font-content-serif', 'font-content-title', 'text-sm', 'text-base', 'text-lg', 'text-xl', 'text-2xl', 'text-40', 'lowercase', 'uppercase', 'tracking-default', 'align-text-bottom', 'font-sans', 'font-serif', 'font-mono', 'font-light', 'font-normal', 'font-medium', 'font-semibold', 'font-bold', 'leading-tight', 'mt-0', 'mt-1', 'mt-3', 'mt-4', 'mt-8', 'mt-9', 'mt-10', 'mx-4', 'mx-8', 'ml-3', 'ml-4', 'mr-3', 'mr-4', 'max-w-680', 'max-w-2xl', 'max-w-3xl', 'max-w-4xl', 'max-w-5xl', 'max-w-6xl', 'min-w-0', 'w-auto', 'fill-current', 'text-gray-500', 'text-gray-600', 'text-raven-800', 'text-raven-900a', 'first:mt-0', 'sm:mt-0', 'sm:ml-4', 'sm:ml-8', 'sm:mr-4', 'sm:mr-8', 'sm:flex', 'sm:flex-grow', 'sm:justify-center', 'sm:max-w-680', 'sm:max-w-2xl', 'sm:max-w-3xl', 'sm:max-w-4xl', 'sm:max-w-5xl', 'sm:max-w-6xl'],
+      safelist: ['static', 'relative', 'absolute', 'block', 'hidden', 'inline-block', 'inline-block', 'inline', 'flex', 'flex-none', 'flex-1', 'flex-grow', 'justify-center', 'table', 'float-left', 'float-right', 'text-left', 'text-center', 'text-right', 'text-justify', 'font-basic-sans', 'font-content-sans', 'font-content-serif', 'font-content-title', 'text-sm', 'text-base', 'text-lg', 'text-xl', 'text-2xl', 'text-40', 'lowercase', 'uppercase', 'tracking-default', 'align-text-bottom', 'font-sans', 'font-serif', 'font-mono', 'font-light', 'font-normal', 'font-medium', 'font-semibold', 'font-bold', 'leading-tight', 'mt-0', 'mt-1', 'mt-3', 'mt-4', 'mt-8', 'mt-9', 'mt-10', 'mx-4', 'mx-8', 'ml-3', 'ml-4', 'mr-3', 'mr-4', 'max-w-680', 'max-w-2xl', 'max-w-3xl', 'max-w-4xl', 'max-w-5xl', 'max-w-6xl', 'min-w-0', 'w-auto', 'fill-current', 'text-gray-400', 'text-gray-600', 'text-raven-800', 'text-raven-900a', 'first:mt-0', 'sm:mt-0', 'sm:ml-4', 'sm:ml-8', 'sm:mr-4', 'sm:mr-8', 'sm:flex', 'sm:flex-grow', 'sm:justify-center', 'sm:max-w-680', 'sm:max-w-2xl', 'sm:max-w-3xl', 'sm:max-w-4xl', 'sm:max-w-5xl', 'sm:max-w-6xl'],
     }
   },
   theme: {
@@ -26,7 +14,7 @@ module.exports = {
         '3': '3px',
       },
       boxShadow: {
-        'b': '0 4px 12px 0 rgba(0, 0, 0, 0.05)',
+        'b': '0 4px 12px 0 rgba(0, 0, 0, 0.05)', // bottom
       },
       colors: {
         // HSL to RGB HEX
@@ -51,6 +39,18 @@ module.exports = {
         'content-title': ['content-title', ...defaultTheme.fontFamily.serif],
       },
       fontSize: {
+        // TW default, but no line-height
+        xs: '0.75rem',
+        sm: '0.875rem',
+        base: '1rem',
+        lg: '1.125rem',
+        xl: '1.25rem',
+        '2xl': '1.5rem',
+        '3xl': '1.875rem',
+        '4xl': '2.25rem',
+        '5xl': '3rem',
+        '6xl': '4rem',
+        // Axiom
         '13': '0.8125rem', // 13px
         '15': '0.9375rem', // 15px
         '21': '1.3125rem', // 21px
@@ -60,10 +60,10 @@ module.exports = {
       },
       letterSpacing: {
         'default': 'normal',
-        'tightly': '-0.015em',
+        'snug': '-0.015em',
       },
       lineHeight: {
-        'tightly': '1.15', //  18.4
+        'tighter': '1.15', //  18.4px
       },
       maxWidth: {
         '680': '42.5rem', // 680
@@ -71,9 +71,6 @@ module.exports = {
       spacing: {
         '2px': '2px',
         '3px': '3px',
-        '7': '1.75rem', // 28px
-        '9': '2.25rem', // 40px
-        '14': '3.5rem', // 56px
       },
     },
   },
@@ -84,6 +81,11 @@ module.exports = {
   plugins: [],
   corePlugins: {
     animation: false,
+    backgroundOpacity: false,
+    borderOpacity: false,
     container: false,
+    ringOpacity: false,
+    textOpacity: false,
+    transform: false,
   }
 }
