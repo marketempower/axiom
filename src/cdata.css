@@ -17,7 +17,7 @@
   & > h4,
   & > h5,
   & > h6 {
-    @apply font-content-sans font-semibold leading-tightly tracking-tight;
+    @apply font-content-sans font-semibold leading-tighter tracking-tight;
   }
 
   /* <h1>:typography */
@@ -46,7 +46,7 @@
   & > ul,
   & > blockquote p {
     @apply font-content-serif font-normal text-xl;
-    line-height: 1.6;
+    line-height: 1.6; /* 32px */
     letter-spacing: -0.004em;
   }
 
