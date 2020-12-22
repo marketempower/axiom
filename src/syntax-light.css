@@ -17,7 +17,7 @@
 /* LineTable */ .chroma .lntable {}
 /* LineHighlight */ .chroma .hl { @apply bg-yellow-200 }
 /* LineNumbersTable */ .chroma .lnt {}
-/* LineNumbers */ .chroma .ln { @apply text-gray-500 }
+/* LineNumbers */ .chroma .ln { @apply text-gray-400 }
 /* Keyword */ .chroma .k { @apply text-blue-500 }
 /* KeywordConstant */ .chroma .kc { @apply text-blue-500 }
 /* KeywordDeclaration */ .chroma .kd { @apply text-blue-500 }
@@ -27,14 +27,14 @@
 /* KeywordType */ .chroma .kt { @apply text-purple-500 }
 /* Name */ .chroma .n {}
 /* NameAttribute */ .chroma .na { @apply text-yellow-600 }
-/* NameBuiltin */ .chroma .nb { @apply text-orange-500 }
+/* NameBuiltin */ .chroma .nb { @apply text-yellow-500 }
 /* NameBuiltinPseudo */ .chroma .bp {}
 /* NameClass */ .chroma .nc { @apply text-red-500 }
 /* NameConstant */ .chroma .no { @apply text-green-500 }
 /* NameDecorator */ .chroma .nd { @apply text-red-500 }
 /* NameEntity */ .chroma .ni {}
 /* NameException */ .chroma .ne { @apply text-red-500 }
-/* NameFunction */ .chroma .nf { @apply text-orange-500 }
+/* NameFunction */ .chroma .nf { @apply text-yellow-500 }
 /* NameFunctionMagic */ .chroma .fm {}
 /* NameLabel */ .chroma .nl {}
 /* NameNamespace */ .chroma .nn {}
@@ -55,7 +55,7 @@
 /* LiteralStringDelimiter */ .chroma .dl { @apply text-green-500 }
 /* LiteralStringDoc */ .chroma .sd { @apply text-green-500 }
 /* LiteralStringDouble */ .chroma .s2 { @apply text-green-500 }
-/* LiteralStringEscape */ .chroma .se { @apply text-gray-500 }
+/* LiteralStringEscape */ .chroma .se { @apply text-gray-400 }
 /* LiteralStringHeredoc */ .chroma .sh { @apply text-green-500 }
 /* LiteralStringInterpol */ .chroma .si { @apply text-green-500 }
 /* LiteralStringOther */ .chroma .sx { @apply text-green-500 }
@@ -72,13 +72,13 @@
 /* Operator */ .chroma .o { @apply text-blue-400 }
 /* OperatorWord */ .chroma .ow { @apply text-blue-400 }
 /* Punctuation */ .chroma .p { @apply text-gray-600 }
-/* Comment */ .chroma .c { @apply text-gray-500 }
-/* CommentHashbang */ .chroma .ch { @apply text-gray-500 }
-/* CommentMultiline */ .chroma .cm { @apply text-gray-500 }
-/* CommentSingle */ .chroma .c1 { @apply text-gray-500 }
-/* CommentSpecial */ .chroma .cs { @apply text-gray-500 }
-/* CommentPreproc */ .chroma .cp { @apply text-gray-500 }
-/* CommentPreprocFile */ .chroma .cpf { @apply text-gray-500 }
+/* Comment */ .chroma .c { @apply text-gray-400 }
+/* CommentHashbang */ .chroma .ch { @apply text-gray-400 }
+/* CommentMultiline */ .chroma .cm { @apply text-gray-400 }
+/* CommentSingle */ .chroma .c1 { @apply text-gray-400 }
+/* CommentSpecial */ .chroma .cs { @apply text-gray-400 }
+/* CommentPreproc */ .chroma .cp { @apply text-gray-400 }
+/* CommentPreprocFile */ .chroma .cpf { @apply text-gray-400 }
 /* Generic */ .chroma .g {}
 /* GenericDeleted */ .chroma .gd {}
 /* GenericEmph */ .chroma .ge { @apply italic }
