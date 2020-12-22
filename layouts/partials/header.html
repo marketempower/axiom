@@ -1,5 +1,5 @@
 <header id="nav" class="header">
-  <div class="ax-l-i{{ printf " %s" (.Params.maxWidthHeader | default "max-w-6xl") }}">
+  <div class="ax-l-i {{ printf "%s" (.Params.maxWidthHeader | default "max-w-6xl") }}">
     <div class="ax-logo">
       {{- $logo := printf `<span class="font-semibold text-raven-900">%s</span>` .Site.Title }}
       {{- if (and (reflect.IsMap .Site.Params.logo) (isset .Site.Params.logo "path") (isset .Site.Params.logo "inline")) }}
@@ -24,7 +24,7 @@
       {{- $currentPage := . }}
       {{- range (.Site.Menus.main) }}
       {{- $isCurrent := (eq (trim $currentPage.RelPermalink "/") (trim .URL "/")) }}
-      <a class="p-2 block text-base leading-none{{ if $isCurrent }} text-gray-500 cursor-not-allowed{{ else }} text-raven-500 hover:text-gray-800 focus:text-gray-800 focus:outline-none{{ end }}"{{ if not $isCurrent }} href="{{ .URL | relLangURL }}"{{ end }}>
+      <a class="p-2 block text-base leading-none{{ if $isCurrent }} text-gray-400 cursor-not-allowed{{ else }} text-raven-500 hover:text-gray-800 focus:text-gray-800 focus:outline-none{{ end }}"{{ if not $isCurrent }} href="{{ .URL | relLangURL }}"{{ end }}>
         {{ .Name }}
       </a>
       {{- end }}

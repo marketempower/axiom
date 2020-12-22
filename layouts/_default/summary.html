@@ -10,7 +10,7 @@
   </div>
   {{- end }}
   <div class="summary-content font-content-sans">
-    <a class="summary-title block font-semibold leading-tightly tracking-tightly text-2xl text-raven-800 hover:text-raven-900" href="{{ .RelPermalink }}">{{ .Title }}</a>
+    <a class="summary-title block font-semibold leading-tighter tracking-snug text-2xl text-raven-800 hover:text-raven-900" href="{{ .RelPermalink }}">{{ .Title }}</a>
     <a class="summary-excerpt mt-2 block font-normal leading-tight tracking-normal text-base text-raven-500 hover:text-raven-600" href="{{ .RelPermalink }}">
       {{- partial "meta-subtitle" . | safeHTML | truncate 175 "..." -}}
     </a>

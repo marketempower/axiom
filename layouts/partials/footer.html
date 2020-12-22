@@ -1,10 +1,10 @@
 <footer class="footer">
-  <div class="ax-l-i{{ printf " %s" (.Params.maxWidthFooter | default "max-w-6xl") }}">
+  <div class="ax-l-i {{ printf "%s" (.Params.maxWidthFooter | default "max-w-6xl") }}">
     {{- $currentPage := . }}
     <nav class="flex items-center justify-center">
       {{- range (.Site.Menus.foot) }}
       {{- $isCurrent := (eq (trim $currentPage.RelPermalink "/") (trim .URL "/")) }}
-      <a class="ml-3 first:ml-0 text-sm{{ if $isCurrent }} text-gray-500 cursor-not-allowed{{ else }} text-gray-600 hover:text-gray-800{{ end }}"{{ if not $isCurrent }} href="{{ .URL | relLangURL }}"{{ end }}>{{ .Name }}</a>
+      <a class="ml-3 first:ml-0 text-sm{{ if $isCurrent }} text-gray-400 cursor-not-allowed{{ else }} text-gray-600 hover:text-gray-800{{ end }}"{{ if not $isCurrent }} href="{{ .URL | relLangURL }}"{{ end }}>{{ .Name }}</a>
       {{- end }}
     </nav>
 
@@ -16,14 +16,14 @@
     </div>
     {{- end }}
 
-    <div class="footer-copyright text-sm text-center text-gray-500 mt-4">
+    <div class="footer-copyright text-sm text-center text-gray-400 mt-4">
       {{- $copyright := (T "copyright" .) | default .Site.Copyright | default .Site.Title }}
       &#169; {{ .Site.Params.copyrightYear }}-{{ dateFormat "2006" now.UTC }} {{ $copyright }}
     </div>
 
     {{- if not (eq .Site.Params.disableThemeAttribution true) }}
     {{- $theme := .Scratch.Get "theme" }}
-    <div class="text-sm sm:text-xs text-center text-gray-500 mt-2">
+    <div class="text-sm sm:text-xs text-center text-gray-400 mt-2">
       {{ printf `%s <a href="%s?utm_source=theme-footer&utm_medium=website&utm_campaign=referral">%s</a>` (T "poweredBy" .) $theme.homepage $theme.name | safeHTML }}
     </div>
     {{- end }}
