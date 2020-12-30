@@ -1,20 +1,20 @@
-{{- $currentPage := . }}
+{{- $currentPage := . -}}
 {{- $author := partial "author-data" . -}}
 {{- $twitterSVG := partial "svg/twitter.svg" (dict "class" "w-6 h-6 fill-current") -}}
 {{- $facebookSVG := partial "svg/facebook.svg" (dict "class" "w-6 h-6 fill-current" "viewbox" "-7 -3.5 39 39") -}}
 {{- $facebookApp := .Site.Params.services.facebookApp -}}
+{{- $share := .Site.Data.services.share -}}
 {{- /* Use isset instead of default to support explicit empty array */ -}}
-{{- $shares := (slice "twitter" "facebook") -}}
 {{- if isset .Site.Params.share "enable" -}}
-  {{- $shares = .Site.Params.share.enable -}}
+  {{- $share = .Site.Params.share.enable -}}
 {{- end -}}
-{{- with $shares }}
+{{- with $share -}}
 <div class="flex items-center">
-  {{- if in $shares "twitter" -}}
+  {{- if in $share "twitter" }}
     <a class="flex-shrink-0 block text-raven-800 hover:text-raven-900" target="_blank" rel="noopener nofollow" title="{{ (T "twitterShare" $currentPage) }}" href="https://twitter.com/intent/tweet?text={{ printf "%s by @%s %s" $currentPage.Title $author.twitter $currentPage.Permalink }}">{{ $twitterSVG }}</a>
   {{- end }}
-  {{- if in $shares "facebook" -}}
+  {{- if in $share "facebook" }}
     <a class="ml-3 flex-shrink-0 block text-raven-800 hover:text-raven-900" target="_blank" rel="noopener nofollow" title="{{ (T "facebookShare" $currentPage) }}" href="https://www.facebook.com/dialog/share?app_id={{ $facebookApp }}&display=page&href={{ $currentPage.Permalink }}">{{ $facebookSVG }}</a>
   {{- end }}
 </div>
-{{- end }}
+{{- end -}}
