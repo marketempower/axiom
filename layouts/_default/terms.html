@@ -1,7 +1,7 @@
 {{ define "main" }}
 <div class="default-terms">
   <div class="ax-content ax-l-o">
-    <div class="ax-l-i{{ printf " %s" (.Params.maxWidthContent | default "max-w-680") }}">
+    <div class="ax-l-i{{ printf " %s" (.Param "maxWidthContent" | default "max-w-680") }}">
       <h1 class="section-title font-content-sans font-semibold uppercase tracking-wide text-2xl text-raven-800">{{ .Title | humanize }}</h1>
 
       <div class="mt-8">
