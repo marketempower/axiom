@@ -1,7 +1,7 @@
 {{ define "main" }}
 <div class="default-single">
   <div class="ax-title ax-l-o">
-    <div class="ax-l-i{{ printf " %s" (.Params.maxWidthTitle | default "max-w-680") }}">
+    <div class="ax-l-i{{ printf " %s" (.Param "maxWidthTitle" | default "max-w-680") }}">
       <h1 class="post-title font-content-title font-normal leading-tight tracking-default text-40">{{ .Title }}</h1>
       {{- if .Params.subtitle }}
       <p class="post-subtitle font-content-sans font-light text-xl text-raven-500 mt-3">{{- partial "meta-subtitle" . | safeHTML -}}</p>
@@ -20,14 +20,14 @@
 
   {{- if .Params.feature }}
   <div class="ax-feature ax-l-o">
-    <div class="ax-l-i{{ printf " %s" (.Params.maxWidthFeature | default "max-w-5xl") }}">
+    <div class="ax-l-i{{ printf " %s" (.Param "maxWidthFeature" | default "max-w-5xl") }}">
       {{- partial "feature" . }}
     </div>
   </div>
   {{- end -}}
 
   <div class="ax-content ax-l-o">
-    <div class="ax-l-i{{ printf " %s" (.Params.maxWidthContent | default "max-w-680") }}">
+    <div class="ax-l-i{{ printf " %s" (.Param "maxWidthContent" | default "max-w-680") }}">
       <article class="cdata">
       {{- partial "toc" . }}
       {{- .Content }}

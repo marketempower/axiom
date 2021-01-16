@@ -1,5 +1,5 @@
 <footer class="footer">
-  <div class="ax-l-i {{ printf "%s" (.Params.maxWidthFooter | default "max-w-6xl") }}">
+  <div class="ax-l-i {{ printf "%s" (.Param "maxWidthFooter" | default "max-w-6xl") }}">
     {{- $currentPage := . }}
     <nav class="flex items-center justify-center">
       {{- range (.Site.Menus.foot) }}
