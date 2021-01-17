@@ -18,7 +18,8 @@
 
     <div class="footer-copyright text-sm text-center text-gray-400 mt-4">
       {{- $copyright := (T "copyright" .) | default .Site.Copyright | default .Site.Title }}
-      &#169; {{ .Site.Params.copyrightYear }}-{{ dateFormat "2006" now.UTC }} {{ $copyright }}
+      {{- $currentYear := dateFormat "2006" now.UTC }}
+      &#169; {{ if lt .Site.Params.copyrightYear $currentYear }}{{ .Site.Params.copyrightYear }}-{{ end }}{{ $currentYear }} {{ $copyright }}
     </div>
 
     {{- if not (eq .Site.Params.disableThemeAttribution true) }}
