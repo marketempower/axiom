@@ -20,7 +20,7 @@
       {{- $copyright := (T "copyright" .) | default .Site.Copyright | default .Site.Title }}
       {{- $currentYear := dateFormat "2006" now.UTC }}
       &#169; {{ if lt .Site.Params.copyrightYear $currentYear }}{{ .Site.Params.copyrightYear }}-{{ end }}{{ $currentYear }} {{ $copyright }}
-    </div$>
+    </div>
 
     {{- if not (eq .Site.Params.disableThemeAttribution true) }}
     {{- $theme := .Scratch.Get "theme" }}
