@@ -2,12 +2,18 @@
 {{- $customCSS := resources.Get "custom.css" }}
 {{- $slice := slice $appCSS }}
 {{- if $customCSS }}
-{{- $slice = $slice | append ($customCSS | resources.Minify) }}
+{{- $slice = slice ($customCSS | resources.Minify) | append ($slice) }}
 {{- end }}
 {{- $bundleCSS := $slice | resources.Concat "bundle.css" }}
 {{- $bundleCSS = printf "%s?v=%d" $bundleCSS.RelPermalink now.Unix }}
 <link rel="preload" as="style" href="{{ $bundleCSS | safeHTML }}" media="all">
 <link rel="stylesheet" href="{{ $bundleCSS | safeHTML }}" media="all">
+<!-- {{- if $customCSS }}
+{{- $customSlice := $customCSS | resources.Minify }}
+{{- $customBundleCSS := printf "%s?v=%d" $customSlice.RelPermalink now.Unix }}
+<link rel="preload" as="style" href="{{ $customBundleCSS | safeHTML }}" media="all">
+<link rel="stylesheet" href="{{ $customBundleCSS | safeHTML }}" media="all">
+{{- end }} -->
 
 {{- if not (eq .Site.Params.highlight false) }}
 {{- $syntaxCSS := printf "syntax-%s.css" (.Site.Params.highlight | default "dark") }}
