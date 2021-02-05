@@ -2,7 +2,13 @@
 {{- $customCSS := resources.Get "custom.css" }}
 {{- $slice := slice $appCSS }}
 {{- if $customCSS }}
-{{- $slice = slice ($customCSS | resources.Minify) | append ($slice) }}
+{{- $imports := findRE "@import.*?[\"']([^\"']+)[\"'].*?;" $customCSS.Content }}
+{{- if $imports }}
+{{- range $imports }}
+<style>{{(. | safeCSS)}}</style>
+{{- end }}
+{{- end }}
+{{- $slice = $slice | append ($customCSS | resources.Minify) }}
 {{- end }}
 {{- $bundleCSS := $slice | resources.Concat "bundle.css" }}
 {{- $bundleCSS = printf "%s?v=%d" $bundleCSS.RelPermalink now.Unix }}
