@@ -40,6 +40,9 @@ other = "Download"
 [buyNow]
 other = "Buy Now"
 
+[copyright]
+other = "Copyright"
+
 [twitterShare]
 other = "Share on Twitter"
 

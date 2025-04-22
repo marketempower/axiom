@@ -1,11 +1,12 @@
-{{- .Scratch.Set "theme" (dict "name" (humanize (T "theme")) "version" "0.0.0" "homepage" "/") }}
+{{- $theme := dict "name" (humanize (T "theme")) "version" "0.0.0" "homepage" "/" }}
 {{- $pkgJSON := "./themes/axiom/package.json" }}
 {{- if (fileExists $pkgJSON) }}
-{{- $pkgJSON = getJSON $pkgJSON }}
-{{- .Scratch.SetInMap "theme" "version" $pkgJSON.version }}
-{{- .Scratch.SetInMap "theme" "homepage" $pkgJSON.homepage }}
+{{- with os.ReadFile $pkgJSON | transform.Unmarshal }}
+{{- $version := .version | default $theme.version }}
+{{- $homepage := .homepage | default $theme.homepage }}
+{{- $theme = merge $theme (dict "version" $version "homepage" .homepage) }}
+{{- end }}
 {{- end }}
 {{- if not (eq .Site.Params.disableThemeAttribution true) }}
-{{- $theme := .Scratch.Get "theme" }}
 <meta name="hugo-theme" content="{{ printf "%s %s" $theme.name $theme.version | safeHTMLAttr }}">
 {{- end }}

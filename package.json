@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "axiom",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Axiom is a powerful, high performance, modular Hugo theme, designed to make the readers of your content and the search engines happy.",
   "author": "Jhaura Wachsman <jw@jhaurawachsman.com> (https://www.jhaurawachsman.com/)",
   "homepage": "https://www.axiomtheme.com/",
@@ -23,17 +23,17 @@
     "watch:js": "chokidar \"./src/**/*.js\" -c \"NODE_ENV=development npm run js\""
   },
   "devDependencies": {
-    "autoprefixer": "^10.1.0",
-    "chokidar-cli": "^2.1.0",
+    "autoprefixer": "^10.4.17",
+    "chokidar-cli": "^3.0.0",
     "concat": "^1.0.3",
-    "cssnano": "^4.1.10",
-    "del-cli": "^3.0.1",
-    "postcss": "^8.2.1",
-    "postcss-cli": "^8.3.1",
-    "postcss-import": "^14.0.0",
-    "postcss-nesting": "^7.0.1",
-    "tailwindcss": "^2.0.2",
-    "terser": "^5.5.1"
+    "cssnano": "^6.0.5",
+    "del-cli": "^5.1.0",
+    "postcss": "^8.4.35",
+    "postcss-cli": "^11.0.0",
+    "postcss-import": "^16.0.1",
+    "postcss-nesting": "^12.0.2",
+    "tailwindcss": "^2.2.19",
+    "terser": "^5.27.2"
   },
   "dependencies": {}
 }
