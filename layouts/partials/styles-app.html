@@ -2,13 +2,18 @@
 {{- $customCSS := resources.Get "custom.css" }}
 {{- $slice := slice $appCSS }}
 {{- if $customCSS }}
+{{- $imports := findRE "@import.*?[\"']([^\"']+)[\"'].*?;" $customCSS.Content }}
+{{- if $imports }}
+{{- range $imports }}
+<style>{{(. | safeCSS)}}</style>
+{{- end }}
+{{- end }}
 {{- $slice = $slice | append ($customCSS | resources.Minify) }}
 {{- end }}
 {{- $bundleCSS := $slice | resources.Concat "bundle.css" }}
 {{- $bundleCSS = printf "%s?v=%d" $bundleCSS.RelPermalink now.Unix }}
 <link rel="preload" as="style" href="{{ $bundleCSS | safeHTML }}" media="all">
 <link rel="stylesheet" href="{{ $bundleCSS | safeHTML }}" media="all">
-
 {{- if not (eq .Site.Params.highlight false) }}
 {{- $syntaxCSS := printf "syntax-%s.css" (.Site.Params.highlight | default "dark") }}
 <style>{{ (resources.Get $syntaxCSS).Content | safeCSS }}</style>
